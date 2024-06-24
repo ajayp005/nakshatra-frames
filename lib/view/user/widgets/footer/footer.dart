@@ -9,7 +9,7 @@ class NakshatraFooterBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color:Colors.black),
+      decoration: const BoxDecoration(color:Colors.black),
       height: ResponsiveWebSite.isMobile(context) ? 500 : 200,
       width: double.infinity,
       child: Column(
@@ -20,7 +20,7 @@ class NakshatraFooterBar extends StatelessWidget {
             child: ResponsiveWebSite.isMobile(context)
                 ? Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                     crossAxisAlignment: CrossAxisAlignment.start,
+                    // crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
                         height: 80,
@@ -58,10 +58,10 @@ class NakshatraFooterBar extends StatelessWidget {
                     ],
                   )
                 : Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 50),
+                        padding: const EdgeInsets.all(20.0),
                         child: Container(
                           height: 100,
                           width: 100,
@@ -75,7 +75,7 @@ class NakshatraFooterBar extends StatelessWidget {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.only(right: 100,left: 100),
+                          padding: const EdgeInsets.only(right: 200,left: 00),
                           child: SizedBox(
                             height: 150,
                             child: Center(

@@ -1,4 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:nakshatra_frames/view/user/home_page/about/about.dart';
 import 'package:nakshatra_frames/view/user/widgets/responsive/responsive.dart';
 
 class HomePageImageWidget extends StatelessWidget {
@@ -42,40 +46,51 @@ class AppbarWidgets extends StatelessWidget {
     return Row(
       children: [
         Container(
-            child: Text(
+            child: const Text(
           "Home",
           style: TextStyle(
             color: Colors.white,
             fontSize: 18,
           ),
         )),
-        SizedBox(
+        const SizedBox(
+          width: 15,
+        ),
+        GestureDetector(
+          onTap: () {
+            log("1234567890");
+            Get.to(
+              ()=>const AboutNakshatraFrames());
+          },
+          child:
+          //  OnHoverText(builder: (isHoverd) {
+          //   final color = isHoverd ? Colors.amber : cWhite;
+          //   return
+             const Text(
+              "About Us",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+              ),
+            )
+        //  }),
+        ),
+        const SizedBox(
           width: 15,
         ),
         Container(
-            child: Text(
-          "About Us",
+            child: const Text(
+          "Works",
           style: TextStyle(
             color: Colors.white,
             fontSize: 18,
           ),
         )),
-        SizedBox(
+        const SizedBox(
           width: 15,
         ),
         Container(
-            child: Text(
-          "Heritage",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18,
-          ),
-        )),
-        SizedBox(
-          width: 15,
-        ),
-        Container(
-            child: Text(
+            child: const Text(
           "Contact Us",
           style: TextStyle(
             color: Colors.white,
