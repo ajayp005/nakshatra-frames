@@ -239,20 +239,16 @@ class NakshatraFramesHomePage extends StatelessWidget {
                           height: 548,
                           color: Colors.black,
                           width: screenSize.width / 1.575,
-                          child:  const Expanded(child: VideoPlayerDemo1()),
+                          child:  const VideoPlayerDemo1(),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(),
-                        child: Expanded(
-                          child: Container(
-                            height: 548,
-                            width: screenSize.width - screenSize.width / 1.56,
-                            color: Colors.black,
-                            child: const AboutVideoText(),
-                            // width: screenSize.width/2,
-                            // child: VideoPlayerDemo(),
-                          ),
+                        child: Container(
+                          height: 548,
+                          width: screenSize.width - screenSize.width / 1.56,
+                          color: Colors.black,
+                          child: const AboutVideoText(),
                         ),
                       ),
                     ],

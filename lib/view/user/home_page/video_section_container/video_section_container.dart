@@ -1,16 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:nakshatra_frames/view/fonts/fonts.dart';
 import 'package:nakshatra_frames/view/user/widgets/carosel_slider/corosel_slider_demo.dart';
 import 'package:nakshatra_frames/view/user/widgets/responsive/responsive.dart';
-import 'package:nakshatra_frames/view/user/widgets/video_player/mob_tab_player.dart';
 import 'package:nakshatra_frames/view/user/widgets/video_player/main_video_player.dart';
-
-import '../../widgets/video_player/video_player1.dart';
-import '../../widgets/video_player/video_player2.dart';
-import '../../widgets/video_player/video_player3.dart';
-import '../../widgets/video_player/video_player4.dart';
+import 'package:nakshatra_frames/view/user/widgets/video_player/mob_tab_player.dart';
 
 class VideoSectionContainer extends StatelessWidget {
   const VideoSectionContainer({
@@ -41,7 +34,7 @@ class VideoSectionContainer extends StatelessWidget {
                     ? Row(
                         children: [
                           Expanded(
-                            child: Container(
+                            child: SizedBox(
                               height: 200,
                               child: FullscreenSliderDemo(),
                             ),
@@ -57,7 +50,7 @@ class VideoSectionContainer extends StatelessWidget {
                         ? Row(
                             children: [
                               Expanded(
-                                child: Container(
+                                child: SizedBox(
                                   height: 300,
                                   child: FullscreenSliderDemo(),
                                 ),
@@ -94,7 +87,7 @@ class VideoSectionContainer extends StatelessWidget {
                         : Row(
                             children: [
                               Expanded(
-                                child: Container(
+                                child: SizedBox(
                                   height: 600,
                                   width: size.width - size.width / 3,
                                   child: FullscreenSliderDemo(),
@@ -130,9 +123,9 @@ class VideoSectionContainer extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
+                const SizedBox(
                   height: 100,
-                  child: const Center(
+                  child: Center(
                       child: Text(
                     "Our Works",
                     style: TextStyle(
@@ -141,7 +134,7 @@ class VideoSectionContainer extends StatelessWidget {
                         color: Colors.white),
                   )),
                 ),
-                Container(
+                SizedBox(
                   height: ResponsiveWebSite.isDesktop(context) ? 500 : 200,
                   
                   child: const SingleChildScrollView(
@@ -254,7 +247,7 @@ class VideoPlayerContainerWidgets extends StatelessWidget {
       color: Colors.black,
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: ResponsiveWebSite.isMobile(context)
                 ? 100
                 : ResponsiveWebSite.isTablet(context)
@@ -267,7 +260,7 @@ class VideoPlayerContainerWidgets extends StatelessWidget {
                     : 350,
             child: GestureDetector(
               child: ResponsiveWebSite.isDesktop(context)
-                  ? Container(height: 180, width: 360, child: VideoPlayerDemo1())
+                  ? const SizedBox(height: 180, width: 360, child: VideoPlayerDemo1())
                   : VideoPlayerApp(),
 
               // Image.asset(
@@ -310,7 +303,7 @@ class VideoPlayer1ContainerWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        SizedBox(
           height: ResponsiveWebSite.isMobile(context)
               ? 100
               : ResponsiveWebSite.isTablet(context)
@@ -323,9 +316,9 @@ class VideoPlayer1ContainerWidgets extends StatelessWidget {
                   : 450,
           child: GestureDetector(
             child: ResponsiveWebSite.isDesktop(context)
-                ? Container(
-                    height: 250, width: 450, child: const VideoPlayer1())
-                : Container(height: 100, width: 220,child: VideoPlayerApp()),
+                ? SizedBox(
+                    height: 250, width: 450, child: Container())
+                : SizedBox(height: 100, width: 220,child: VideoPlayerApp()),
     
             // Image.asset(
             //   "webassets/images/leptonlogo.png",
@@ -366,7 +359,7 @@ class VideoPlayer2ContainerWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        SizedBox(
           height: ResponsiveWebSite.isMobile(context)
               ? 100
               : ResponsiveWebSite.isTablet(context)
@@ -379,9 +372,9 @@ class VideoPlayer2ContainerWidgets extends StatelessWidget {
                   : 450,
           child: GestureDetector(
             child: ResponsiveWebSite.isDesktop(context)
-                ? Container(
-                    height: 250, width: 450, child: const VideoPlayer2())
-                : Container(height: 100, width: 220,child: VideoPlayerApp()),
+                ? SizedBox(
+                    height: 250, width: 450, child:  Container())
+                : SizedBox(height: 100, width: 220,child: VideoPlayerApp()),
     
             // Image.asset(
             //   "webassets/images/leptonlogo.png",
@@ -422,7 +415,7 @@ class VideoPlayer3ContainerWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        SizedBox(
           height: ResponsiveWebSite.isMobile(context)
               ? 100
               : ResponsiveWebSite.isTablet(context)
@@ -435,8 +428,8 @@ class VideoPlayer3ContainerWidgets extends StatelessWidget {
                   : 450,
           child: GestureDetector(
             child: ResponsiveWebSite.isDesktop(context)
-                ? Container(
-                    height: 250, width: 450, child: const VideoPlayer3())
+                ? SizedBox(
+                    height: 250, width: 450, child: Container())
                 : VideoPlayerApp(),
     
             // Image.asset(
@@ -478,7 +471,7 @@ class VideoPlayer4ContainerWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        SizedBox(
           height: ResponsiveWebSite.isMobile(context)
               ? 100
               : ResponsiveWebSite.isTablet(context)
@@ -491,8 +484,8 @@ class VideoPlayer4ContainerWidgets extends StatelessWidget {
                   : 450,
           child: GestureDetector(
             child: ResponsiveWebSite.isDesktop(context)
-                ? Container(
-                    height: 250, width: 450, child: const VideoPlayer4())
+                ? SizedBox(
+                    height: 250, width: 450, child:  Container())
                 : VideoPlayerApp(),
     
             // Image.asset(

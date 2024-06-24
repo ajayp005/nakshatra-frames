@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nakshatra_frames/view/user/home_page/home_page.dart';
 
 void main() {
+    WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

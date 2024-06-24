@@ -1,117 +1,63 @@
-import 'package:appinio_video_player/appinio_video_player.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
+import 'dart:developer';
 
-
+import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 class VideoPlayerDemo1 extends StatefulWidget {
-  const VideoPlayerDemo1({Key? key}) : super(key: key);
+  const VideoPlayerDemo1({super.key});
 
   @override
   State<VideoPlayerDemo1> createState() => _VideoPlayerDemo1State();
 }
 
 class _VideoPlayerDemo1State extends State<VideoPlayerDemo1> {
-  late CachedVideoPlayerController _videoPlayerController,
-      _videoPlayerController2,
-      _videoPlayerController3;
-
-  late CustomVideoPlayerController _customVideoPlayerController;
-  late CustomVideoPlayerWebController _customVideoPlayerWebController;
-
-  final CustomVideoPlayerSettings _customVideoPlayerSettings =
-      const CustomVideoPlayerSettings(showSeekButtons: true);
-
-  final CustomVideoPlayerWebSettings _customVideoPlayerWebSettings =
-      CustomVideoPlayerWebSettings(
-    src: longVideo,
-    autoplay: true,
-    
-  );
+  late VideoPlayerController _controller;
 
   @override
   void initState() {
     super.initState();
-
-    _videoPlayerController = CachedVideoPlayerController.network(
-      longVideo,
-    )..initialize().then((value) => setState(() {}));
-    _videoPlayerController2 = CachedVideoPlayerController.network(video240);
-    _videoPlayerController3 = CachedVideoPlayerController.network(video480);
-    _customVideoPlayerController = CustomVideoPlayerController(
-      context: context,
-
-      videoPlayerController: _videoPlayerController,
-      customVideoPlayerSettings: _customVideoPlayerSettings,
-      additionalVideoSources: {
-        "240p": _videoPlayerController2,
-        "480p": _videoPlayerController3,
-        "720p": _videoPlayerController,
-      },
-    );
-
-    _customVideoPlayerWebController = CustomVideoPlayerWebController(
-      webVideoPlayerSettings: _customVideoPlayerWebSettings,
-      
-    );
+    _controller = VideoPlayerController.networkUrl(Uri.parse(longVideo))
+      ..initialize().then((_) {
+        setState(() {});
+      });
   }
 
   @override
   void dispose() {
-    _customVideoPlayerController.dispose();
+    _controller.dispose();
     super.dispose();
+  }
+
+  void _onVisibilityChanged(VisibilityInfo info) {
+    log("Visibility changed: ${info.visibleFraction}");
+    if (info.visibleFraction == 0 && _controller.value.isPlaying) {
+      log("Video paused because it is not visible.");
+      _controller.pause();
+    } else if (info.visibleFraction > 0 && !_controller.value.isPlaying) {
+      log("Video played from current position because it became visible.");
+      _controller.seekTo(Duration.zero);
+      _controller.setVolume(0.1);
+      _controller.play();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-   
-      child: SafeArea(
-        child: ListView(
-        
-          physics: const NeverScrollableScrollPhysics(),
-          children: [
-            kIsWeb
-                ? Expanded(
-                    child: CustomVideoPlayerWeb(
-                      customVideoPlayerWebController:
-                          _customVideoPlayerWebController,
-                    ),
-                  )
-                : CustomVideoPlayer(
-                    customVideoPlayerController: _customVideoPlayerController,
-                  ),
-            CupertinoButton(
-              child: const Text("Play Fullscreen"),
-              onPressed: () {
-                if (kIsWeb) {
-                  _customVideoPlayerWebController.setFullscreen(true);
-                  _customVideoPlayerWebController.play();
-                } else {
-                  _customVideoPlayerController.setFullscreen(true);
-                  _customVideoPlayerController.videoPlayerController.play();
-                }
-              },
-            ),
-          ],
-        ),
-      ),
+    return VisibilityDetector(
+      key: const Key('video-player'),
+      onVisibilityChanged: _onVisibilityChanged,
+      child: _controller.value.isInitialized
+          ? AspectRatio(
+              aspectRatio: _controller.value.aspectRatio,
+              child: VideoPlayer(_controller),
+            )
+          : const Center(child: CircularProgressIndicator()),
     );
   }
 }
 
 String videoUrlLandscape =
     "https://firebasestorage.googleapis.com/v0/b/bloctest-39269.appspot.com/o/Chasing%20the%20Future%20for%20a%20better%20Today%20%20__%20LEPTON.mp4?alt=media&token=1d37a6f4-c333-4eed-8bfe-28cc29c39bae";
-String videoUrlPortrait =
-    'https://assets.mixkit.co/videos/preview/mixkit-a-girl-blowing-a-bubble-gum-at-an-amusement-park-1226-large.mp4';
 String longVideo =
     "https://firebasestorage.googleapis.com/v0/b/bloctest-39269.appspot.com/o/coronakalathe%20pranayam%20frstvdo.mp4?alt=media&token=633f1d70-497b-407a-a824-7b8342a1dd3d";
-
-String video720 =
-    "https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_10mb.mp4";
-
-String video480 =
-    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4";
-
-String video240 =
-    "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4";
