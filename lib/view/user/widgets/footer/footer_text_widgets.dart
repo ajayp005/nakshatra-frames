@@ -203,7 +203,7 @@ class WhoWeAreWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           GooglePoppinsWidgets(
-            text: "NAKSHATRA Frames",
+            text: "Nakshatra Frames",
             fontsize: 18,
             fontWeight: FontWeight.bold,
             color: cWhite,
@@ -248,7 +248,7 @@ class WhoWeAreWidget extends StatelessWidget {
   }
 }
 
-List<String> constechDUjo = ['Who We Are', 'Why choose us','SUPER ADMIN'];
+List<String> constechDUjo = ['Who We Are', 'Why choose us',];
 List<String> connect = ['Facebook', 'Instagram', 'Youtube'];
 List<String> legal = [
   'Terms & Conditions',

@@ -67,7 +67,7 @@ class VideoSectionContainer extends StatelessWidget {
                                 width: size.width / 3,
                                 color: Colors.black,
                                 child: ListView.builder(
-                                    itemCount: 10,
+                                    itemCount: 4,
                                     shrinkWrap: true,
                                     physics:
                                         const AlwaysScrollableScrollPhysics(),
@@ -105,7 +105,7 @@ class VideoSectionContainer extends StatelessWidget {
                                 width: size.width / 3,
                                 color: Colors.black,
                                 child: ListView.builder(
-                                    itemCount: 10,
+                                    itemCount: 4,
                                     shrinkWrap: true,
                                     physics:
                                         const AlwaysScrollableScrollPhysics(),

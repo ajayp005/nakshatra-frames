@@ -58,7 +58,7 @@ class NakshatraFooterBar extends StatelessWidget {
                     ],
                   )
                 : Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 50),
@@ -83,7 +83,7 @@ class NakshatraFooterBar extends StatelessWidget {
                                   color: cWhite,
                                   text:
                                       'Lepton Plus Communications is a customer oriented company offering digital solutions in Healthcare,E-Commerce Applications\nHome Automation and Social Networking.\nWe are commited to providing high end sustainable products and services that\nenhances the quality of life',
-                                  fontsize: 13),
+                                  fontsize: 11),
                             ),
                           ),
                         ),
