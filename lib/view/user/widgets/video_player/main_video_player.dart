@@ -37,7 +37,7 @@ class _VideoPlayerDemo1State extends State<VideoPlayerDemo1> {
     } else if (info.visibleFraction > 0 && !_controller.value.isPlaying) {
       log("Video played from current position because it became visible.");
       _controller.seekTo(Duration.zero);
-      _controller.setVolume(0.1);
+      _controller.setVolume(0.9);
       _controller.play();
     }
   }
