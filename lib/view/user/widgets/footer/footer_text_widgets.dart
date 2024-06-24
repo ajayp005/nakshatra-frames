@@ -204,7 +204,7 @@ class WhoWeAreWidget extends StatelessWidget {
         children: [
           GooglePoppinsWidgets(
             text: "Nakshatra Frames",
-            fontsize: 18,
+            fontsize: 20,
             fontWeight: FontWeight.bold,
             color: cWhite,
           ),
@@ -249,7 +249,7 @@ class WhoWeAreWidget extends StatelessWidget {
 }
 
 List<String> constechDUjo = ['Who We Are', 'Why choose us',];
-List<String> connect = ['Facebook', 'Instagram', 'Youtube'];
+List<String> connect = ['Facebook', 'Instagram','Twitter', 'Youtube'];
 List<String> legal = [
   'Terms & Conditions',
   'Family Policy',
@@ -273,9 +273,9 @@ var costechdujonav = [
 
 final Uri _faceBookUrl =
     Uri.parse('https://www.facebook.com/');
-final Uri _twitterUrl = Uri.parse('https://twitter.com/');
-final Uri _instaUrl = Uri.parse('https://www.instagram.com/');
-final Uri _utubeUrl = Uri.parse('https://www.youtube.com/');
+final Uri _twitterUrl = Uri.parse('https://x.com/home');
+final Uri _instaUrl = Uri.parse('https://www.instagram.com/?hl=en');
+final Uri _utubeUrl = Uri.parse('https://www.youtube.com/feed/you');
 
 
 Future<void> _launchFacebookUrl() async {
@@ -303,10 +303,10 @@ Future<void> _launchInstaUrl() async {
 }
 
 var connectnav = [
-  _launchFacebookUrl,
-  _launchInstaUrl,
+  _launchFacebookUrl(),
+  _launchInstaUrl(),
   _launchTwitterUrl(),
-  _launchyouTubeUrl,
+  _launchyouTubeUrl(),
 ];
 var legalnav = [
   const TermsAndConditions(),

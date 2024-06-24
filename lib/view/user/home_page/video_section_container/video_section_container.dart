@@ -39,11 +39,6 @@ class VideoSectionContainer extends StatelessWidget {
                               child: FullscreenSliderDemo(),
                             ),
                           ),
-                          Container(
-                            height: 200,
-                            width: 150,
-                            color: Colors.amber,
-                          )
                         ],
                       )
                     : ResponsiveWebSite.isTablet(context)
@@ -87,33 +82,40 @@ class VideoSectionContainer extends StatelessWidget {
                         : Row(
                             children: [
                               Expanded(
+                                flex: 1,
                                 child: SizedBox(
-                                  height: 600,
-                                  width: size.width - size.width / 3,
+                                  height: 500,
+                                  // width: size.width - size.width / 3,
                                   child: FullscreenSliderDemo(),
                                 ),
                               ),
-                              Container(
-                                height: 600,
-                                width: size.width / 3,
-                                color: Colors.black,
-                                child: ListView.builder(
-                                    itemCount: 4,
-                                    shrinkWrap: true,
-                                    physics:
-                                        const AlwaysScrollableScrollPhysics(),
-                                    itemBuilder: (context, index) {
-                                      return const Card(
-                                        child: ListTile(
-                                          leading: FlutterLogo(size: 72.0),
-                                          title: Text('Three-line ListTile'),
-                                          subtitle: Text(
-                                              'A sufficiently long subtitle warrants three lines.'),
-                                          trailing: Icon(Icons.more_vert),
-                                          isThreeLine: true,
-                                        ),
-                                      );
-                                    }),
+                              Expanded(
+                                flex: 1,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 10,right: 10),
+                                  child: Container(
+                                    height: 500,
+                                    // width: size.width / 3,
+                                    color: Colors.black,
+                                    child: ListView.builder(
+                                        itemCount: 4,
+                                        shrinkWrap: true,
+                                        physics:
+                                            const AlwaysScrollableScrollPhysics(),
+                                        itemBuilder: (context, index) {
+                                          return const Card(
+                                            child: ListTile(
+                                              leading: FlutterLogo(size: 72.0),
+                                              title: Text('Three-line ListTile'),
+                                              subtitle: Text(
+                                                  'A sufficiently long subtitle warrants three lines.'),
+                                              trailing: Icon(Icons.more_vert),
+                                              isThreeLine: true,
+                                            ),
+                                          );
+                                        }),
+                                  ),
+                                ),
                               )
                             ],
                           ),
@@ -135,10 +137,18 @@ class VideoSectionContainer extends StatelessWidget {
                   )),
                 ),
                 SizedBox(
-                  height: ResponsiveWebSite.isDesktop(context) ? 500 : 200,
+                  height: ResponsiveWebSite.isDesktop(context) ? 500 : 400,
                   
-                  child: const SingleChildScrollView(
-                    child: Column(
+                  child:  SingleChildScrollView(
+                    child: ResponsiveWebSite.isMobile(context) ? 
+                    const Column(
+                      children: [
+                       VideoPlayer1ContainerWidgets(),
+                       VideoPlayer2ContainerWidgets(),
+                       VideoPlayer3ContainerWidgets(),
+                       VideoPlayer4ContainerWidgets(),
+                    ],)
+                   : const Column(
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -261,7 +271,7 @@ class VideoPlayerContainerWidgets extends StatelessWidget {
             child: GestureDetector(
               child: ResponsiveWebSite.isDesktop(context)
                   ? const SizedBox(height: 180, width: 360, child: VideoPlayerDemo1())
-                  : VideoPlayerApp(),
+                  : const VideoPlayerApp(),
 
               // Image.asset(
               //   "webassets/images/leptonlogo.png",
@@ -305,21 +315,17 @@ class VideoPlayer1ContainerWidgets extends StatelessWidget {
       children: [
         SizedBox(
           height: ResponsiveWebSite.isMobile(context)
-              ? 100
+              ? 250
               : ResponsiveWebSite.isTablet(context)
                   ? 150
                   : 250,
           width: ResponsiveWebSite.isMobile(context)
-              ? 150
+              ? 350
               : ResponsiveWebSite.isTablet(context)
                   ? 250
                   : 450,
           child: GestureDetector(
-            child: ResponsiveWebSite.isDesktop(context)
-                ? SizedBox(
-                    height: 250, width: 450, child: Container())
-                : SizedBox(height: 100, width: 220,child: VideoPlayerApp()),
-    
+            child:const VideoPlayerSmall()
             // Image.asset(
             //   "webassets/images/leptonlogo.png",
             // ),
@@ -332,14 +338,14 @@ class VideoPlayer1ContainerWidgets extends StatelessWidget {
           ),
         ),
         const Text(
-          "sdfs",
+          "Lepton",
           // state.videos[index].title,
           // style: const TextStyle(
           style: TextStyle(color: Colors.white),
           //     fontWeight: FontWeight.w400),
         ),
         GooglePoppinsWidgets(
-          text: "hi",
+          text: "Products",
           //  state.videos[index].subtitle,
           fontsize: 10,
           color: Colors.white,
@@ -361,20 +367,17 @@ class VideoPlayer2ContainerWidgets extends StatelessWidget {
       children: [
         SizedBox(
           height: ResponsiveWebSite.isMobile(context)
-              ? 100
+              ? 250
               : ResponsiveWebSite.isTablet(context)
                   ? 150
                   : 250,
           width: ResponsiveWebSite.isMobile(context)
-              ? 150
+              ? 350
               : ResponsiveWebSite.isTablet(context)
                   ? 250
                   : 450,
           child: GestureDetector(
-            child: ResponsiveWebSite.isDesktop(context)
-                ? SizedBox(
-                    height: 250, width: 450, child:  Container())
-                : SizedBox(height: 100, width: 220,child: VideoPlayerApp()),
+            child: const VideoPlayerSecond(),
     
             // Image.asset(
             //   "webassets/images/leptonlogo.png",
@@ -388,14 +391,14 @@ class VideoPlayer2ContainerWidgets extends StatelessWidget {
           ),
         ),
         const Text(
-          "sdfs",
+          "Lepton",
           // state.videos[index].title,
           // style: const TextStyle(
           style: TextStyle(color: Colors.white),
           //     fontWeight: FontWeight.w400),
         ),
         GooglePoppinsWidgets(
-          text: "hi",
+          text: "Product",
           //  state.videos[index].subtitle,
           fontsize: 10,
           color: Colors.white,
@@ -417,20 +420,17 @@ class VideoPlayer3ContainerWidgets extends StatelessWidget {
       children: [
         SizedBox(
           height: ResponsiveWebSite.isMobile(context)
-              ? 100
+              ? 250
               : ResponsiveWebSite.isTablet(context)
                   ? 150
                   : 250,
           width: ResponsiveWebSite.isMobile(context)
-              ? 150
+              ? 350
               : ResponsiveWebSite.isTablet(context)
                   ? 250
                   : 450,
           child: GestureDetector(
-            child: ResponsiveWebSite.isDesktop(context)
-                ? SizedBox(
-                    height: 250, width: 450, child: Container())
-                : VideoPlayerApp(),
+            child:const VideoPlayerAppThird(),
     
             // Image.asset(
             //   "webassets/images/leptonlogo.png",
@@ -444,14 +444,14 @@ class VideoPlayer3ContainerWidgets extends StatelessWidget {
           ),
         ),
         const Text(
-          "sdfs",
+          "Lepton",
           // state.videos[index].title,
           // style: const TextStyle(
           style: TextStyle(color: Colors.white),
           //     fontWeight: FontWeight.w400),
         ),
         GooglePoppinsWidgets(
-          text: "hi",
+          text: "Product",
           //  state.videos[index].subtitle,
           fontsize: 10,
           color: Colors.white,
@@ -473,20 +473,17 @@ class VideoPlayer4ContainerWidgets extends StatelessWidget {
       children: [
         SizedBox(
           height: ResponsiveWebSite.isMobile(context)
-              ? 100
+              ? 250
               : ResponsiveWebSite.isTablet(context)
                   ? 150
                   : 250,
           width: ResponsiveWebSite.isMobile(context)
-              ? 150
+              ? 350
               : ResponsiveWebSite.isTablet(context)
                   ? 250
                   : 450,
           child: GestureDetector(
-            child: ResponsiveWebSite.isDesktop(context)
-                ? SizedBox(
-                    height: 250, width: 450, child:  Container())
-                : VideoPlayerApp(),
+            child: const VideoPlayerAppFourth(),
     
             // Image.asset(
             //   "webassets/images/leptonlogo.png",
@@ -500,14 +497,14 @@ class VideoPlayer4ContainerWidgets extends StatelessWidget {
           ),
         ),
         const Text(
-          "sdfs",
+          "Lepton",
           // state.videos[index].title,
           // style: const TextStyle(
           style: TextStyle(color: Colors.white),
           //     fontWeight: FontWeight.w400),
         ),
         GooglePoppinsWidgets(
-          text: "hi",
+          text: "Product",
           //  state.videos[index].subtitle,
           fontsize: 10,
           color: Colors.white,

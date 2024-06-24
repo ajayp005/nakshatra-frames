@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nakshatra_frames/view/fonts/fonts.dart';
 import 'package:nakshatra_frames/view/user/widgets/colors.dart';
-import 'package:nakshatra_frames/view/user/widgets/google_monstserrat_widget.dart';
 import 'package:nakshatra_frames/view/user/widgets/responsive/responsive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -14,7 +11,7 @@ class ContactAndDeatilsWidget extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     return Container(
         color: Colors.black,
-        height: 400,
+        height:ResponsiveWebSite.isMobile(context)?570: 400,
         child: ResponsiveWebSite.isDesktop(context)
             ? Row(
                 //>>>>>>>>>>>>>>>>>>>>    DESK TOP VIEW <<<<<<<<<<<<<<<<<<<<<<
@@ -26,12 +23,12 @@ class ContactAndDeatilsWidget extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
+                        SizedBox(
                           height: 40,
                           width: 250,
                           child: Row(
                             children: [
-                              Container(
+                              SizedBox(
                                   height: 40,
                                   width: 40,
                                   child: Image.asset(
@@ -39,7 +36,7 @@ class ContactAndDeatilsWidget extends StatelessWidget {
                               const SizedBox(
                                 width: 10,
                               ),
-                              Container(
+                              SizedBox(
                                   height: 40,
                                   width: 200,
                                   child: Image.asset(
@@ -107,20 +104,20 @@ class ContactAndDeatilsWidget extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
+                        SizedBox(
                           height: 40,
                           width: 250,
                           child: Row(
                             //  mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Container(
+                              SizedBox(
                                   height: 40,
                                   width: 200,
                                   child: Image.asset(
                                       'webassets/images/lepton_logo_text.png')),
-                                      Container(
-                                  height: 40,
-                                  width: 40,),
+                                      const SizedBox(
+                                  height: 35,
+                                  width: 35,),
                             ],
                           ),
                         ),
@@ -181,53 +178,71 @@ class ContactAndDeatilsWidget extends StatelessWidget {
             Column(
                 children: [
                   SizedBox(
-                    height: ResponsiveWebSite.isMobile(context) ? 200 : 250,
+                    height: 260,
+                    width: 320,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        GoogleMonstserratWidgets(
-                          text: '''Emergency contacts''',
-                          fontsize:
-                              ResponsiveWebSite.isMobile(context) ? 18 : 22,
-                          color: cWhite,
-                          fontWeight: FontWeight.bold,
+                        SizedBox(
+                          height: 40,
+                          width: 250,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                  height: 40,
+                                  width: 40,
+                                  child: Image.asset(
+                                      'webassets/images/leptonlogo.png')),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              SizedBox(
+                                  height: 40,
+                                  width: 200,
+                                  child: Image.asset(
+                                      'webassets/images/nakshatra_Frames.png'))
+                            ],
+                          ),
                         ),
                         SizedBox(
-                          height: 150,
+                          height: 205,
+                          width: 250,
                           child: Padding(
-                            padding: const EdgeInsets.only(top: 20),
+                            padding: const EdgeInsets.only(top: 10),
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  '📞 +91 471 4053483',
-                                  style: TextStyle(
-                                      color: cWhite,
-                                      fontSize:
-                                          ResponsiveWebSite.isMobile(context)
-                                              ? 13
-                                              : 16),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 10),
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 20),
                                   child: Text(
-                                    '✉️ framesnakshatra@lepton.com',
-                                    style: TextStyle(
-                                        color: cWhite,
-                                        fontSize:
-                                            ResponsiveWebSite.isMobile(context)
-                                                ? 13
-                                                : 16),
+                                    '7th Floor, Karimpanal Statue Avenue,\nG.H Road, Statue\nTrivandrum-01',
+                                    style: TextStyle(color: cWhite),
                                   ),
                                 ),
-                                GestureDetector(
-                                  onTap: () => launchWhatsAppUrl(),
-                                  child: SizedBox(
-                                    height: 70,
-                                    width: 150,
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 5),
+                                  child: Text(
+                                    '📞 +91 471 4053483',
+                                    style: TextStyle(color: cWhite),
+                                  ),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 5),
+                                  child: Text(
+                                    '✉️ framesnakshatra@lepton.com',
+                                    style: TextStyle(color: cWhite),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 20),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      launchWhatsAppUrl();
+                                    },
                                     child: Image.asset(
                                       "webassets/images/whatsApp_image.png",
-                                      height: 70,
-                                      width: 150,
+                                      height: screenSize.width / 15,
+                                      width: screenSize.width / 10,
                                     ),
                                   ),
                                 ),
@@ -235,49 +250,74 @@ class ContactAndDeatilsWidget extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Container(
-                          height: 1,
-                          width: double.infinity,
-                          color: Colors.amber,
-                        ),
                       ],
                     ),
                   ),
+                  
                   SizedBox(
-                    height: ResponsiveWebSite.isMobile(context) ? 200 : 250,
+                    height: 260,
+                    width: 320,
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20, left: 20),
-                          child: GooglePoppinsWidgets(
-                            text: 'Our Office Address',
-                            fontsize: 20,
-                            color: cWhite,
-                            fontWeight: FontWeight.w700,
+                        SizedBox(
+                          height: 40,
+                          width: 250,
+                          child: Row(
+                            //  mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                  height: 40,
+                                  width: 200,
+                                  child: Image.asset(
+                                      'webassets/images/lepton_logo_text.png')),
+                                      const SizedBox(
+                                  height: 35,
+                                  width: 35,),
+                            ],
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            top: 30,
-                          ),
-                          child: SizedBox(
-                            height: 120,
+                        SizedBox(
+                          height: 205,
+                          width: 270,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 10),
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                GooglePoppinsWidgets(
-                                  text: 'TRIVANDRUM OFFICE',
-                                  fontsize: ResponsiveWebSite.isMobile(context)
-                                      ? 14
-                                      : 18,
-                                  color: cWhite,
-                                  fontWeight: FontWeight.w500,
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 20),
+                                  child: Text(
+                                    '5th Floor, Karimpanal Statue Avenue,\nG.H Road, Statue\nTrivandrum-01',
+                                    style: TextStyle(color: cWhite),
+                                  ),
                                 ),
-                                GooglePoppinsWidgets(
-                                  text:
-                                      '5th Floor, Karimpanal Statue Avenue,Near\nSecretariat Trivandrum-01\nCall +91 9048666651',
-                                  fontsize: 13,
-                                  color: cWhite,
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 5),
+                                  child: Text(
+                                    '📞 +91 904866651',
+                                    style: TextStyle(color: cWhite),
+                                  ),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 5),
+                                  child: Text(
+                                    '✉️ leptoncommunications@gmail.com',
+                                    style: TextStyle(color: cWhite),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 20),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      launchWhatsAppUrl();
+                                    },
+                                    child: Image.asset(
+                                      "webassets/images/whatsApp_image.png",
+                                      height: screenSize.width / 15,
+                                      width: screenSize.width / 10,
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -285,7 +325,7 @@ class ContactAndDeatilsWidget extends StatelessWidget {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ));
   }

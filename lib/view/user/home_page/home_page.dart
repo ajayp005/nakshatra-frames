@@ -21,6 +21,37 @@ enum MenuItem { Homeone, Aboutusone, Contactusone, Servicesone, Demoone }
 // ignore: must_be_immutable
 class NakshatraFramesHomePage extends StatelessWidget {
   NakshatraFramesHomePage({super.key});
+  
+final Uri _faceBookUrl =
+    Uri.parse('https://www.facebook.com/');
+final Uri _twitterUrl = Uri.parse('https://x.com/home');
+final Uri _instaUrl = Uri.parse('https://www.instagram.com/?hl=en');
+final Uri _utubeUrl = Uri.parse('https://www.youtube.com/feed/you');
+
+
+Future<void> _launchFacebookUrl() async {
+  if (!await launchUrl(_faceBookUrl)) {
+    throw 'Could not launch $_faceBookUrl';
+  }
+}
+
+Future<void> _launchTwitterUrl() async {
+  if (!await launchUrl(_twitterUrl)) {
+    throw 'Could not launch $_twitterUrl';
+  }
+}
+
+Future<void> _launchyouTubeUrl() async {
+  if (!await launchUrl(_utubeUrl)) {
+    throw 'Could not launch $_utubeUrl';
+  }
+}
+
+Future<void> _launchInstaUrl() async {
+  if (!await launchUrl(_instaUrl)) {
+    throw 'Could not launch $_instaUrl';
+  }
+}
 
   void _launchURL(String url) async {
     if (await canLaunchUrlString(url)) {
@@ -62,8 +93,9 @@ class NakshatraFramesHomePage extends StatelessWidget {
                                           FontAwesomeIcons.facebook,
                                           color: Colors.blue,
                                         ),
-                                        onPressed: () => _launchURL(
-                                            'https://www.facebook.com'),
+                                        onPressed: () => _launchFacebookUrl,
+                                        // _launchURL(
+                                        //     'https://www.facebook.com/'),
                                       ),
                                       IconButton(
                                         icon: const FaIcon(
@@ -73,7 +105,7 @@ class NakshatraFramesHomePage extends StatelessWidget {
                                               Color.fromARGB(255, 217, 83, 128),
                                         ),
                                         onPressed: () => _launchURL(
-                                            'https://www.instagram.com'),
+                                            'https://www.instagram.com/?hl=en'),
                                       ),
                                       IconButton(
                                         focusColor: Colors.black,
@@ -83,7 +115,7 @@ class NakshatraFramesHomePage extends StatelessWidget {
                                           color: Colors.white,
                                         ),
                                         onPressed: () => _launchURL(
-                                            'https://www.twitter.com'),
+                                            'https://x.com/home'),
                                       ),
                                       IconButton(
                                         icon: const FaIcon(
@@ -92,7 +124,7 @@ class NakshatraFramesHomePage extends StatelessWidget {
                                           color: Colors.red,
                                         ),
                                         onPressed: () => _launchURL(
-                                            'https://www.youtube.com'),
+                                            'https://www.youtube.com/feed/you'),
                                       ),
                                     ],
                                   ),
@@ -147,8 +179,9 @@ class NakshatraFramesHomePage extends StatelessWidget {
                                             FontAwesomeIcons.facebook,
                                             color: Colors.white,
                                           ),
-                                          onPressed: () => _launchURL(
-                                              'https://www.facebook.com'),
+                                          onPressed: () => _launchFacebookUrl,
+                                          // _launchURL(
+                                          //     'https://www.facebook.com/'),
                                         ),
                                         IconButton(
                                           icon: const FaIcon(
@@ -158,7 +191,7 @@ class NakshatraFramesHomePage extends StatelessWidget {
                                                 255, 217, 83, 128),
                                           ),
                                           onPressed: () => _launchURL(
-                                              'https://www.instagram.com'),
+                                              'https://www.instagram.com/?hl=en'),
                                         ),
                                         IconButton(
                                           focusColor: Colors.black,
@@ -168,7 +201,7 @@ class NakshatraFramesHomePage extends StatelessWidget {
                                             color: Colors.white,
                                           ),
                                           onPressed: () => _launchURL(
-                                              'https://www.twitter.com'),
+                                              'https://x.com/home'),
                                         ),
                                         IconButton(
                                           icon: const FaIcon(
@@ -177,7 +210,7 @@ class NakshatraFramesHomePage extends StatelessWidget {
                                             color: Colors.red,
                                           ),
                                           onPressed: () => _launchURL(
-                                              'https://www.youtube.com'),
+                                              'https://www.youtube.com/feed/you'),
                                         ),
                                         const SizedBox(
                                           width: 10,
@@ -262,7 +295,7 @@ class NakshatraFramesHomePage extends StatelessWidget {
                               height: 400,
                               color: Colors.black,
                               width: double.infinity,
-                              child:  Expanded(child:VideoPlayerApp()),
+                              child:  const Expanded(child:VideoPlayerApp()),
                             ),
                           ),
                           const Padding(
@@ -283,7 +316,7 @@ class NakshatraFramesHomePage extends StatelessWidget {
                             child: Container(
                               height: 300,
                               color: Colors.black,
-                              child:  VideoPlayerApp(),
+                              child:  const VideoPlayerApp(),
                             ),
                           ),
                           const Padding(

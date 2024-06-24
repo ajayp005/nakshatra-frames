@@ -10,12 +10,12 @@ class NakshatraFooterBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(color:Colors.black),
-      height: ResponsiveWebSite.isMobile(context) ? 500 : 200,
+      height: ResponsiveWebSite.isMobile(context) ? 510 : 200,
       width: double.infinity,
       child: Column(
         children: [
           SizedBox(
-            height: ResponsiveWebSite.isMobile(context) ? 500 : 200,
+            height: ResponsiveWebSite.isMobile(context) ? 510 : 200,
             width: double.infinity,
             child: ResponsiveWebSite.isMobile(context)
                 ? Column(
@@ -60,22 +60,26 @@ class NakshatraFooterBar extends StatelessWidget {
                 : Row(
                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Container(
-                          height: 100,
-                          width: 100,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image:
-                                  AssetImage('webassets/images/leptonlogo.png'),
+                      Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image:
+                                    AssetImage('webassets/images/leptonlogo.png'),
+                              ),
                             ),
                           ),
                         ),
                       ),
                       Expanded(
+                        flex: 2,
                         child: Padding(
-                          padding: const EdgeInsets.only(right: 200,left: 00),
+                          padding: const EdgeInsets.only(right: 100,left: 00),
                           child: SizedBox(
                             height: 150,
                             child: Center(
@@ -89,16 +93,19 @@ class NakshatraFooterBar extends StatelessWidget {
                         ),
                       ),
                       Expanded(
-                        flex: 1,
-                        child: SizedBox(
-                          height: 150,
-                          child: GooglePoppinsWidgets(text: 
-                          '📌 Lepton Plus Communications (OPC) Pvt.Ltd\n'
-                                '5 th Floor,Karimpanal Statue Avenue , G.H. Road \n'
-                                'Statue,Thiruvanathapuram - 695001,Kerala,India\n'
-                            '📞 +91 97469 66651 | +91 97463 66651 | +91 471 4053483\n'
-                            '✉️ info@leptoncommunications.com\n'
-                            '✉️ leptoncommunications@gmail.com',color: cWhite, fontsize: 13),
+                        flex: 2,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 00),
+                          child: SizedBox(
+                            height: 150,
+                            child: GooglePoppinsWidgets(text: 
+                            '📌 Lepton Plus Communications (OPC) Pvt.Ltd\n'
+                                  '5 th Floor,Karimpanal Statue Avenue , G.H. Road \n'
+                                  'Statue,Thiruvanathapuram - 695001,Kerala,India\n'
+                              '📞 +91 97469 66651 | +91 97463 66651 | +91 471 4053483\n'
+                              '✉️ info@leptoncommunications.com\n'
+                              '✉️ leptoncommunications@gmail.com',color: cWhite, fontsize: 13),
+                          ),
                         ),
                       )
                     ],
