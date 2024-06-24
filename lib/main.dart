@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nakshatra_frames/view/user/home_page/home_page.dart';
 
 void main() {
+    WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -13,12 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Nakshatra Frames',
-      // theme: ThemeData(
-      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      //   useMaterial3: true,
-      // ),
       debugShowCheckedModeBanner: false,
-      home: NakshatraFramesHomePage(),
+      home:NakshatraFramesHomePage(),
 
     );
   }

@@ -10,8 +10,8 @@ import 'package:nakshatra_frames/view/user/widgets/footer/footer_section.dart';
 import 'package:nakshatra_frames/view/user/widgets/home_page_widgets/home_page_widgets.dart';
 import 'package:nakshatra_frames/view/user/widgets/responsive/responsive.dart';
 import 'package:nakshatra_frames/view/user/widgets/video_player/about_video/about_video.dart';
-import 'package:nakshatra_frames/view/user/widgets/video_player/mob_tab_player.dart';
 import 'package:nakshatra_frames/view/user/widgets/video_player/main_video_player.dart';
+import 'package:nakshatra_frames/view/user/widgets/video_player/mob_tab_player.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -24,7 +24,7 @@ class NakshatraFramesHomePage extends StatelessWidget {
 
   void _launchURL(String url) async {
     if (await canLaunchUrlString(url)) {
-      await launchUrl;
+      launchUrl;
     } else {
       throw 'Could not launch $url';
     }
@@ -239,20 +239,16 @@ class NakshatraFramesHomePage extends StatelessWidget {
                           height: 548,
                           color: Colors.black,
                           width: screenSize.width / 1.575,
-                          child:  Expanded(child: VideoPlayerDemo1()),
+                          child:  const VideoPlayerDemo1(),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(),
-                        child: Expanded(
-                          child: Container(
-                            height: 548,
-                            width: screenSize.width - screenSize.width / 1.56,
-                            color: Colors.black,
-                            child: const AboutVideoText(),
-                            // width: screenSize.width/2,
-                            // child: VideoPlayerDemo(),
-                          ),
+                        child: Container(
+                          height: 548,
+                          width: screenSize.width - screenSize.width / 1.56,
+                          color: Colors.black,
+                          child: const AboutVideoText(),
                         ),
                       ),
                     ],
@@ -269,11 +265,11 @@ class NakshatraFramesHomePage extends StatelessWidget {
                               child:  Expanded(child:VideoPlayerApp()),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Container(
+                          const Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: SizedBox(
                               height: 400,
-                              child: const AboutVideoText(),
+                              child: AboutVideoText(),
                               // width: screenSize.width/2,
                               // child: VideoPlayerDemo(),
                             ),
@@ -290,11 +286,11 @@ class NakshatraFramesHomePage extends StatelessWidget {
                               child:  VideoPlayerApp(),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Container(
+                          const Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: SizedBox(
                               height: 400,
-                              child: const AboutVideoText(),
+                              child: AboutVideoText(),
                               // width: screenSize.width/2,
                               // child: VideoPlayerDemo(),
                             ),
