@@ -2,10 +2,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 final List<String> imgList = [
-  "webassets/videos/dujo_lit (1).png",
-  "webassets/videos/dujo_lit (2).png",
-  "webassets/videos/dujo_lit (3).png",
-  "webassets/videos/dujo_lit (4).png"
+  "https://firebasestorage.googleapis.com/v0/b/vidya-veechi-8-feb-2024.appspot.com/o/nakshatra_frames%2Fdujo_lit%20(1).png?alt=media&token=fe144b83-50e3-4596-9401-ce34d76c0414",
+  "https://firebasestorage.googleapis.com/v0/b/vidya-veechi-8-feb-2024.appspot.com/o/nakshatra_frames%2Fdujo_lit%20(2).png?alt=media&token=6eda4942-ada1-423f-b083-c7ee2039ac28",
+  "https://firebasestorage.googleapis.com/v0/b/vidya-veechi-8-feb-2024.appspot.com/o/nakshatra_frames%2Fdujo_lit%20(3).png?alt=media&token=d6cb47cc-18ad-469b-81dd-f512cc78db65",
+  "https://firebasestorage.googleapis.com/v0/b/vidya-veechi-8-feb-2024.appspot.com/o/nakshatra_frames%2Fdujo_lit%20(4).png?alt=media&token=b7b3a484-b8f0-4afa-aef3-f0b34a34ba2e"
   // 'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
   // 'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
   // 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
