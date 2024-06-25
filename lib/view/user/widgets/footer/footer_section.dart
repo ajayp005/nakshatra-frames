@@ -10,7 +10,7 @@ class FooterSectionScreen extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(color:Colors.black),
       height: ResponsiveWebSite.isMobile(context)
-          ? 920
+          ? 720
           : ResponsiveWebSite.isTablet(context)
               ? 600
               : 320,
@@ -49,21 +49,21 @@ class FooterSectionScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           WhoWeAreWidget(),
                         ],
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ConnecWidget(),
                         ],
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           LegalWidget(),

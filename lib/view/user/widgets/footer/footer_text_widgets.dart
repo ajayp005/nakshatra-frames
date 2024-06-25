@@ -1,11 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:nakshatra_frames/view/colors/colors.dart';
 import 'package:nakshatra_frames/view/fonts/fonts.dart';
-import 'package:nakshatra_frames/view/user/widgets/colors.dart';
-import 'package:nakshatra_frames/view/user/widgets/footer/cancellation_policy.dart';
-import 'package:nakshatra_frames/view/user/widgets/footer/family_policy.dart';
 import 'package:nakshatra_frames/view/user/widgets/footer/hoover_text.dart';
 import 'package:nakshatra_frames/view/user/widgets/footer/privacy_policy.dart';
 import 'package:nakshatra_frames/view/user/widgets/footer/terms_and_conditions.dart';
@@ -89,18 +84,18 @@ class LegalWidget extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        if (index == 1) {
-                       Get.toNamed('/PrivacyPolicy');
-                        } else if (index == 2) {
-                          log("privacy ..................");
-                          Get.toNamed('/PrivacyPolicy');
-                        } else {
+                      //   if (index == 1) {
+                      //  Get.toNamed('/PrivacyPolicy');
+                      //   } else if (index == 2) {
+                      //     log("privacy ..................");
+                      //     Get.toNamed('/PrivacyPolicy');
+                      //   } else {
                           Navigator.push(context, MaterialPageRoute(
                             builder: (context) {
                               return legalnav[index];
                             },
                           ));
-                        }
+                      //  }
                       },
                       child: OnHoverText(builder: (isHoverd) {
                         final color = isHoverd
@@ -158,7 +153,7 @@ class ConnecWidget extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                       connectnav[index];
+                       connectnav[index]();
                       },
                       child: OnHoverText(builder: (isHoverd) {
                         final color = isHoverd
@@ -204,7 +199,7 @@ class WhoWeAreWidget extends StatelessWidget {
         children: [
           GooglePoppinsWidgets(
             text: "Nakshatra Frames",
-            fontsize: 18,
+            fontsize: 20,
             fontWeight: FontWeight.bold,
             color: cWhite,
           ),
@@ -249,13 +244,13 @@ class WhoWeAreWidget extends StatelessWidget {
 }
 
 List<String> constechDUjo = ['Who We Are', 'Why choose us',];
-List<String> connect = ['Facebook', 'Instagram', 'Youtube'];
+List<String> connect = ['Facebook', 'Instagram','Twitter', 'Youtube'];
 List<String> legal = [
   'Terms & Conditions',
   'Family Policy',
   'Privacy Policy',
   'Trademark Policy',
-  'Refund and\nCancellation Policy'
+  //'Refund and\nCancellation Policy'
 ];
 List<String> address = [
   '📌 Lepton Plus Communications (OPC) Pvt.Ltd'
@@ -273,9 +268,9 @@ var costechdujonav = [
 
 final Uri _faceBookUrl =
     Uri.parse('https://www.facebook.com/');
-final Uri _twitterUrl = Uri.parse('https://twitter.com/');
-final Uri _instaUrl = Uri.parse('https://www.instagram.com/');
-final Uri _utubeUrl = Uri.parse('https://www.youtube.com/');
+final Uri _twitterUrl = Uri.parse('https://x.com/home');
+final Uri _instaUrl = Uri.parse('https://www.instagram.com/?hl=en');
+final Uri _utubeUrl = Uri.parse('https://www.youtube.com/feed/you');
 
 
 Future<void> _launchFacebookUrl() async {
@@ -305,13 +300,13 @@ Future<void> _launchInstaUrl() async {
 var connectnav = [
   _launchFacebookUrl,
   _launchInstaUrl,
-  _launchTwitterUrl(),
+  _launchTwitterUrl,
   _launchyouTubeUrl,
 ];
 var legalnav = [
   const TermsAndConditions(),
-  const FamilyPolicyScreen(),
+  const PrivacyPolicy(),
   const PrivacyPolicy(),
   const TrademarkAndPolicy(),
-  const CancellationPolicy(),
+ // const CancellationPolicy(),
 ];

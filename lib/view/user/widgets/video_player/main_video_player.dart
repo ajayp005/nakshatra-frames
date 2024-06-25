@@ -19,11 +19,7 @@ class _VideoPlayerDemo1State extends State<VideoPlayerDemo1> {
     super.initState();
     _controller = VideoPlayerController.networkUrl(Uri.parse(longVideo))
       ..initialize().then((_) {
-        setState(() {
-             _controller.addListener(() {
-            
-          });
-        });
+        setState(() {});
       });
   }
 
@@ -34,26 +30,22 @@ class _VideoPlayerDemo1State extends State<VideoPlayerDemo1> {
   }
 
   void _onVisibilityChanged(VisibilityInfo info) {
+    // _controller.play();
     log("Visibility changed: ${info.visibleFraction}");
-
     if (info.visibleFraction == 0 && _controller.value.isPlaying) {
       log("Video paused because it is not visible.");
       _controller.pause();
     } else if (info.visibleFraction > 0 && !_controller.value.isPlaying) {
       log("Video played from current position because it became visible.");
       _controller.seekTo(Duration.zero);
+      _controller.setVolume(0.1);
       _controller.play();
     }
   }
-
-  void _togglePlayPause() {
-    setState(() {
-      if (_controller.value.isPlaying) {
-        _controller.pause();
-      } else {
-        _controller.play();
-      }
-    });
+  
+  void _onVisible(VisibilityInfo info) {
+    VideoPlayerOptions(allowBackgroundPlayback: true);
+    
   }
 
   @override
@@ -61,33 +53,13 @@ class _VideoPlayerDemo1State extends State<VideoPlayerDemo1> {
     return VisibilityDetector(
       key: const Key('video-player'),
       onVisibilityChanged: _onVisibilityChanged,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          AspectRatio(
-            aspectRatio: _controller.value.aspectRatio,
-            child: VideoPlayer(_controller),
-          ),
-          if (!_controller.value.isPlaying)
-            IconButton(
-              iconSize: 64.0,
-              icon: Icon(
-                _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-                color: Colors.red,
-              ),
-              onPressed: _togglePlayPause,
-            ),
-          if (_controller.value.isPlaying)
-            GestureDetector(
-              onTap: _togglePlayPause,
-              child: Container(
-                color: Colors.transparent,
-                height: double.infinity,
-                width: double.infinity,
-              ),
-            ),
-        ],
-      ),
+      
+      child: _controller.value.isInitialized
+          ? AspectRatio(
+              aspectRatio: _controller.value.aspectRatio,
+              child: VideoPlayer(_controller),
+            )
+          : const Center(child: CircularProgressIndicator()),
     );
   }
 }

@@ -9,6 +9,7 @@ class AboutNakshatraFrames extends StatelessWidget {
     return  Scaffold(
       body: SingleChildScrollView(
         child: Container(
+          color: Colors.transparent,
           child: GooglePoppinsWidgets(text: "About Us\n"
 "Our Vision\n"
 "Nakshatra Frames is committed to transforming creative ideas into visual masterpieces. We strive to push the boundaries of conventional filmmaking, delivering stories that resonate with audiences and leave a lasting impact."
