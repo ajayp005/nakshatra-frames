@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nakshatra_frames/view/fonts/fonts.dart';
-import 'package:nakshatra_frames/view/user/widgets/about_dialoge/about_dialoge_box.dart';
 import 'package:nakshatra_frames/view/user/widgets/responsive/responsive.dart';
 
 class NakshatraReadMoreContainerWidget extends StatelessWidget {
@@ -19,27 +18,28 @@ class NakshatraReadMoreContainerWidget extends StatelessWidget {
               ? 300
               : 350,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment:ResponsiveWebSite.isMobile(context)?MainAxisAlignment.center:
+         MainAxisAlignment.spaceBetween,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: SizedBox(
-              height: ResponsiveWebSite.isTablet(context)
-                  ? 200
-                  : ResponsiveWebSite.isMobile(context)
-                      ? double.infinity
-                      : 300,
-              width: ResponsiveWebSite.isTablet(context)
-                  ? 120
-                  : ResponsiveWebSite.isMobile(context)
-                      ? 100
-                      : 220,
-              // child: Image.asset(
-              //   'webassets/images/dance.png',
-              //   fit:ResponsiveWebSite.isMobile(context)?BoxFit.fitHeight: BoxFit.fitWidth,
-              // ),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(left: 10),
+          //   child: SizedBox(
+          //     height: ResponsiveWebSite.isTablet(context)
+          //         ? 200
+          //         : ResponsiveWebSite.isMobile(context)
+          //             ? double.infinity
+          //             : 300,
+          //     width: ResponsiveWebSite.isTablet(context)
+          //         ? 120
+          //         : ResponsiveWebSite.isMobile(context)
+          //             ? 100
+          //             : 220,
+          //     // child: Image.asset(
+          //     //   'webassets/images/dance.png',
+          //     //   fit:ResponsiveWebSite.isMobile(context)?BoxFit.fitHeight: BoxFit.fitWidth,
+          //     // ),
+          //   ),
+          // ),
           Column(
             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -52,7 +52,7 @@ class NakshatraReadMoreContainerWidget extends StatelessWidget {
                     child: Padding(
                       padding: ResponsiveWebSite.isDesktop(context)
                           ? const EdgeInsets.only()
-                          : const EdgeInsets.only(left: 05,top: 10),
+                          : const EdgeInsets.only(left: 0,top: 10),
                       child: GooglePoppinsWidgets(
                           text:
                               'Crafting Dreams into Reality',
@@ -86,7 +86,7 @@ class NakshatraReadMoreContainerWidget extends StatelessWidget {
                   child: Padding(
                     padding: ResponsiveWebSite.isDesktop(context)
                         ? const EdgeInsets.only()
-                        : const EdgeInsets.only(left: 05),
+                        : const EdgeInsets.only(left: 0),
                     child: GooglePoppinsWidgets(
                         text:
                             'At Nakshatra Frames, we are dedicated to the art of storytelling through the magic of film. As a premier film production company based in Trivandrum, India, we specialize in creating captivating movies, engaging ad films, and vibrant YouTube content. As a proud sister concern of Lepton Communications, officially LeptonPlus Communications (OPC) Pvt Ltd, we bring a legacy of creativity, innovation, and excellence to every project.',
@@ -97,22 +97,22 @@ class NakshatraReadMoreContainerWidget extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-                   height: ResponsiveWebSite.isTablet(context)
-                ? 200
-                : ResponsiveWebSite.isMobile(context)
-                    ? double.infinity
-                    : 300,
-            width: ResponsiveWebSite.isTablet(context)
-                ? 50
-                : ResponsiveWebSite.isMobile(context)
-                    ? 20
-                    : 100,
-              // child: Image.asset(
-              //   'webassets/images/dance_flip.png',
-              //   fit: BoxFit.fitHeight,
-              // )
-              ),
+          // SizedBox(
+          //          height: ResponsiveWebSite.isTablet(context)
+          //       ? 200
+          //       : ResponsiveWebSite.isMobile(context)
+          //           ? double.infinity
+          //           : 300,
+          //   width: ResponsiveWebSite.isTablet(context)
+          //       ? 50
+          //       : ResponsiveWebSite.isMobile(context)
+          //           ? 20
+          //           : 100,
+          //     // child: Image.asset(
+          //     //   'webassets/images/dance_flip.png',
+          //     //   fit: BoxFit.fitHeight,
+          //     // )
+          //     ),
         ],
       ),
     );

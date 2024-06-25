@@ -60,13 +60,12 @@ class VideoSectionContainer extends StatelessWidget {
                                     physics:
                                         const AlwaysScrollableScrollPhysics(),
                                     itemBuilder: (context, index) {
-                                      return const Card(
+                                      return  Card(
                                         child: ListTile(
-                                          leading: FlutterLogo(size: 20.0),
-                                          title: Text('Three-line ListTile'),
-                                          subtitle: Text(
-                                              'A sufficiently long subtitle warrants three lines.'),
-                                          trailing: Icon(Icons.more_vert),
+                                          leading:SizedBox(child: Image.asset("webassets/images/leptonlogo.png"),),
+                                          title:  Text(heading[index]),
+                                          subtitle:  Text(detailText[index]),
+                                          trailing: const Icon(Icons.more_vert),
                                           isThreeLine: true,
                                         ),
                                       );
@@ -103,13 +102,12 @@ class VideoSectionContainer extends StatelessWidget {
                                         physics:
                                             const AlwaysScrollableScrollPhysics(),
                                         itemBuilder: (context, index) {
-                                          return const Card(
+                                          return  Card(
                                             child: ListTile(
-                                              leading: FlutterLogo(size: 72.0),
-                                              title: Text('Three-line ListTile'),
-                                              subtitle: Text(
-                                                  'A sufficiently long subtitle warrants three lines.'),
-                                              trailing: Icon(Icons.more_vert),
+                                              leading: SizedBox(child: Image.asset("webassets/images/leptonlogo.png"),),
+                                              title:  Text(heading[index]),
+                                              subtitle:  Text(detailText[index]),
+                                              trailing: const Icon(Icons.more_vert),
                                               isThreeLine: true,
                                             ),
                                           );
@@ -242,6 +240,19 @@ class VideoSectionContainer extends StatelessWidget {
         ));
   }
 }
+
+List<String> heading= [
+  'Nakshatra Frames',
+  'TeleOP',
+  'Lepton Dujo',
+  'Vidyaveechi'
+];
+List<String> detailText= [
+  "Imagination Beyond Stars",
+  "Stay At Home, Care At Home",
+  "Watch And Guide Let Them Study",
+  "E-learning is not just a phase, it's the future's mainstay of education",
+];
 
 class VideoPlayerContainerWidgets extends StatelessWidget {
   const VideoPlayerContainerWidgets({
