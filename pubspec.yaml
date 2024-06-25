@@ -45,6 +45,7 @@ dependencies:
   get_it:
   video_player:
   visibility_detector:
+  video_player_web: ^2.3.1
   smooth_scroll_multiplatform:
 
 

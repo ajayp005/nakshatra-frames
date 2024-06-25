@@ -33,11 +33,9 @@ class VideoSectionContainer extends StatelessWidget {
                 child: ResponsiveWebSite.isMobile(context)
                     ? Row(
                         children: [
-                          Expanded(
-                            child: SizedBox(
-                              height: 200,
-                              child: FullscreenSliderDemo(),
-                            ),
+                          SizedBox(
+                            height: 200,
+                            child: FullscreenSliderDemo(),
                           ),
                           Container(
                             height: 200,
@@ -49,11 +47,9 @@ class VideoSectionContainer extends StatelessWidget {
                     : ResponsiveWebSite.isTablet(context)
                         ? Row(
                             children: [
-                              Expanded(
-                                child: SizedBox(
-                                  height: 300,
-                                  child: FullscreenSliderDemo(),
-                                ),
+                              SizedBox(
+                                height: 300,
+                                child: FullscreenSliderDemo(),
                               ),
                               Container(
                                 height: 300,
@@ -86,12 +82,10 @@ class VideoSectionContainer extends StatelessWidget {
                           )
                         : Row(
                             children: [
-                              Expanded(
-                                child: SizedBox(
-                                  height: 600,
-                                  width: size.width - size.width / 3,
-                                  child: FullscreenSliderDemo(),
-                                ),
+                              SizedBox(
+                                height: 600,
+                                width: size.width - size.width / 3,
+                                child: FullscreenSliderDemo(),
                               ),
                               Container(
                                 height: 600,

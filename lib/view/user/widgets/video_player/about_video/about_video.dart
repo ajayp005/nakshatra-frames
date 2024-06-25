@@ -10,10 +10,8 @@ class AboutVideoText extends StatelessWidget {
     return SafeArea(
           child: Padding(
             padding: const EdgeInsets.only(top: 10, bottom: 10),
-            child: Expanded(
-              child: Container(
-                  child: Image.asset('webassets/videos/corona_noval.jpeg'),
-              ),
+            child: Container(
+                child: Image.asset('webassets/videos/corona_noval.jpeg'),
             ),
           )
           

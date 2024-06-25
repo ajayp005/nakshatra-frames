@@ -6,7 +6,7 @@ import 'package:nakshatra_frames/view/user/home_page/about/about.dart';
 import 'package:nakshatra_frames/view/user/widgets/responsive/responsive.dart';
 
 class HomePageImageWidget extends StatelessWidget {
-  const HomePageImageWidget({
+  const   HomePageImageWidget({
     super.key,
   });
 
