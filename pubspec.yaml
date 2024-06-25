@@ -47,6 +47,8 @@ dependencies:
   visibility_detector:
   video_player_web: ^2.3.1
   smooth_scroll_multiplatform:
+  animated_text_kit:
+  cached_video_player_plus:
 
 
 dev_dependencies:

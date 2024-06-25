@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -14,19 +15,17 @@ class VideoPlayerDemo1 extends StatefulWidget {
 class _VideoPlayerDemo1State extends State<VideoPlayerDemo1> {
   late VideoPlayerController _controller;
 
+ 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.networkUrl(Uri.parse(longVideo))
-      ..initialize().then((_) {
-        setState(() {});
-      });
-  }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
+    _controller = VideoPlayerController.networkUrl(Uri.parse(longVideo));
+      _controller.initialize().then((value) => _controller.play()).then((value) => _controller.pause());
+  }
+  void _handleTap() {
+    print('Container tapped!');
+    // Perform any actions you want when the container is "tapped"
   }
 
   void _onVisibilityChanged(VisibilityInfo info) {
@@ -36,31 +35,38 @@ class _VideoPlayerDemo1State extends State<VideoPlayerDemo1> {
       log("Video paused because it is not visible.");
       _controller.pause();
     } else if (info.visibleFraction > 0 && !_controller.value.isPlaying) {
+      _controller.initialize().then((value) => _controller.play());
       log("Video played from current position because it became visible.");
-      _controller.seekTo(Duration.zero);
-      _controller.setVolume(0.1);
-      _controller.play();
+      // _controller.seekTo(Duration.zero);
     }
-  }
-  
-  void _onVisible(VisibilityInfo info) {
-    VideoPlayerOptions(allowBackgroundPlayback: true);
-    
   }
 
   @override
   Widget build(BuildContext context) {
-    return VisibilityDetector(
-      key: const Key('video-player'),
-      onVisibilityChanged: _onVisibilityChanged,
-      
-      child: _controller.value.isInitialized
-          ? AspectRatio(
-              aspectRatio: _controller.value.aspectRatio,
-              child: VideoPlayer(_controller),
-            )
-          : const Center(child: CircularProgressIndicator()),
+       WidgetsBinding.instance.addPostFrameCallback((_) {
+      _handleTap(); // Call _handleTap function programmatically
+    });
+    return Listener(
+         onPointerDown: (PointerDownEvent event) {
+              if (event.kind == PointerDeviceKind.mouse) {
+                print('Mouse tapped!');
+                // Perform any actions you want when the mouse is tapped
+              }
+            },
+      child: VisibilityDetector(
+          key: const Key('video-player'),
+          onVisibilityChanged: _onVisibilityChanged,
+          child: AspectRatio(
+            aspectRatio: _controller.value.aspectRatio,
+            child: VideoPlayer(_controller),
+          )),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }
 

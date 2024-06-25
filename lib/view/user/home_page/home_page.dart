@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:nakshatra_frames/controller/scroll.dart';
 import 'package:nakshatra_frames/view/colors/colors.dart';
 import 'package:nakshatra_frames/view/user/home_page/read_more.dart';
 import 'package:nakshatra_frames/view/user/home_page/video_section_container/contact_details/contact_details.dart';
@@ -20,38 +22,37 @@ enum MenuItem { Homeone, Aboutusone, Contactusone, Servicesone, Demoone }
 
 // ignore: must_be_immutable
 class NakshatraFramesHomePage extends StatelessWidget {
+  ScrollControllerGetx scrollControllerGetx = Get.put(ScrollControllerGetx());
   NakshatraFramesHomePage({super.key});
-  
-final Uri _faceBookUrl =
-    Uri.parse('https://www.facebook.com/');
-final Uri _twitterUrl = Uri.parse('https://x.com/home');
-final Uri _instaUrl = Uri.parse('https://www.instagram.com/?hl=en');
-final Uri _utubeUrl = Uri.parse('https://www.youtube.com/feed/you');
 
+  final Uri _faceBookUrl = Uri.parse('https://www.facebook.com/');
+  final Uri _twitterUrl = Uri.parse('https://x.com/home');
+  final Uri _instaUrl = Uri.parse('https://www.instagram.com/?hl=en');
+  final Uri _utubeUrl = Uri.parse('https://www.youtube.com/feed/you');
 
-Future<void> _launchFacebookUrl() async {
-  if (!await launchUrl(_faceBookUrl)) {
-    throw 'Could not launch $_faceBookUrl';
+  Future<void> _launchFacebookUrl() async {
+    if (!await launchUrl(_faceBookUrl)) {
+      throw 'Could not launch $_faceBookUrl';
+    }
   }
-}
 
-Future<void> _launchTwitterUrl() async {
-  if (!await launchUrl(_twitterUrl)) {
-    throw 'Could not launch $_twitterUrl';
+  Future<void> _launchTwitterUrl() async {
+    if (!await launchUrl(_twitterUrl)) {
+      throw 'Could not launch $_twitterUrl';
+    }
   }
-}
 
-Future<void> _launchyouTubeUrl() async {
-  if (!await launchUrl(_utubeUrl)) {
-    throw 'Could not launch $_utubeUrl';
+  Future<void> _launchyouTubeUrl() async {
+    if (!await launchUrl(_utubeUrl)) {
+      throw 'Could not launch $_utubeUrl';
+    }
   }
-}
 
-Future<void> _launchInstaUrl() async {
-  if (!await launchUrl(_instaUrl)) {
-    throw 'Could not launch $_instaUrl';
+  Future<void> _launchInstaUrl() async {
+    if (!await launchUrl(_instaUrl)) {
+      throw 'Could not launch $_instaUrl';
+    }
   }
-}
 
   void _launchURL(String url) async {
     if (await canLaunchUrlString(url)) {
@@ -62,126 +63,39 @@ Future<void> _launchInstaUrl() async {
   }
 
   MenuItem? selectedItem;
-
+    final ScrollController scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SafeArea(
-          child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                const HomePageImageWidget(),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                      height: ResponsiveWebSite.isMobile(context) ? 70 : 80,
-                      color: Colors.transparent,
-                      child: ResponsiveWebSite.isDesktop(context)
-                          ? Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 20),
-                                  child: Row(
-                                    children: [
-                                      IconButton(
-                                        icon: const FaIcon(
-                                          size: 20,
-                                          FontAwesomeIcons.facebook,
-                                          color: Colors.blue,
-                                        ),
-                                        onPressed: () => _launchFacebookUrl(),
-                                        // _launchURL(
-                                        //     'https://www.facebook.com/'),
-                                      ),
-                                      IconButton(
-                                        icon: const FaIcon(
-                                          size: 20,
-                                          FontAwesomeIcons.instagram,
-                                          color:
-                                              Color.fromARGB(255, 217, 83, 128),
-                                        ),
-                                        onPressed: () => _launchInstaUrl(),
-                                        // _launchURL(
-                                        //     'https://www.instagram.com/?hl=en'),
-                                      ),
-                                      IconButton(
-                                        focusColor: Colors.black,
-                                        icon: const FaIcon(
-                                          size: 20,
-                                          FontAwesomeIcons.xTwitter,
-                                          color: Colors.white,
-                                        ),
-                                        onPressed: () => _launchTwitterUrl(),
-                                        // _launchURL(
-                                        //     'https://x.com/home'),
-                                      ),
-                                      IconButton(
-                                        icon: const FaIcon(
-                                          size: 20,
-                                          FontAwesomeIcons.youtube,
-                                          color: Colors.red,
-                                        ),
-                                        onPressed: () => _launchyouTubeUrl(),
-                                        // _launchURL(
-                                        //     'https://www.youtube.com/feed/you'),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                const Spacer(),
-                                ResponsiveWebSite.isMobile(context)
-                                    ? const Icon(
-                                        Icons.menu,
-                                        size: 20,
-                                        color: Colors.white,
-                                      )
-                                    : const AppbarWidgets(),
-                              ],
-                            )
-                            ///mobile view ......----->below
-                          : Row(
-                              children: [
-                                SizedBox(
-                                  height: 40,
-                                  width: 40,
-                                  child: Image.asset(
-                                      'webassets/images/leptonlogo.png'),
-                                ),
-                                const Spacer(),
-                                Column(
-                                  children: [
-                                    const Row(
-                                      children: [
-                                        Text(
-                                          "+91 471 4053483",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 10),
-                                        ),
-                                        VerticalDivider(
-                                          width: 20,
-                                          thickness: 3,
-                                          indent: 20,
-                                          endIndent: 0,
-                                          color: Colors.white,
-                                        ),
-                                        Text("framesnakshatra@gmail.com",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 10))
-                                      ],
-                                    ),
-                                    Row(
+      body: Obx(() => SafeArea(
+            child: SingleChildScrollView(
+          controller: scrollController,
+          physics:scrollControllerGetx.isScrolled.value==false ? const NeverScrollableScrollPhysics() : const AlwaysScrollableScrollPhysics(),
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                  HomePageImageWidget(scrollController: scrollController),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                        height: ResponsiveWebSite.isMobile(context) ? 70 : 80,
+                        color: Colors.transparent,
+                        child: ResponsiveWebSite.isDesktop(context)
+                            ? Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 20),
+                                    child: Row(
                                       children: [
                                         IconButton(
                                           icon: const FaIcon(
-                                            size: 15,
+                                            size: 20,
                                             FontAwesomeIcons.facebook,
-                                            color: Colors.white,
+                                            color: Colors.blue,
                                           ),
                                           onPressed: () => _launchFacebookUrl(),
                                           // _launchURL(
@@ -189,10 +103,10 @@ Future<void> _launchInstaUrl() async {
                                         ),
                                         IconButton(
                                           icon: const FaIcon(
-                                            size: 15,
+                                            size: 20,
                                             FontAwesomeIcons.instagram,
-                                            color: Color.fromARGB(
-                                                255, 217, 83, 128),
+                                            color:
+                                                Color.fromARGB(255, 217, 83, 128),
                                           ),
                                           onPressed: () => _launchInstaUrl(),
                                           // _launchURL(
@@ -201,152 +115,244 @@ Future<void> _launchInstaUrl() async {
                                         IconButton(
                                           focusColor: Colors.black,
                                           icon: const FaIcon(
-                                            size: 15,
+                                            size: 20,
                                             FontAwesomeIcons.xTwitter,
                                             color: Colors.white,
                                           ),
-                                          onPressed: () =>_launchTwitterUrl()
-                                          //  _launchURL(
+                                          onPressed: () => _launchTwitterUrl(),
+                                          // _launchURL(
                                           //     'https://x.com/home'),
                                         ),
                                         IconButton(
                                           icon: const FaIcon(
-                                            size: 15,
+                                            size: 20,
                                             FontAwesomeIcons.youtube,
                                             color: Colors.red,
                                           ),
-                                          onPressed: () => _launchyouTubeUrl()
+                                          onPressed: () => _launchyouTubeUrl(),
                                           // _launchURL(
                                           //     'https://www.youtube.com/feed/you'),
                                         ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        PopupMenuButton<MenuItem>(
-                                          icon: const Icon(
-                                            Icons.menu,
-                                            size: 30,
+                                      ],
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                  ResponsiveWebSite.isMobile(context)
+                                      ? const Icon(
+                                          Icons.menu,
+                                          size: 20,
+                                          color: Colors.white,
+                                        )
+                                      : const AppbarWidgets(),
+                                ],
+                              )
+        
+                            ///mobile view ......----->below
+                            : Row(
+                                children: [
+                                  SizedBox(
+                                    height: 40,
+                                    width: 40,
+                                    child: Image.asset(
+                                        'webassets/images/leptonlogo.png'),
+                                  ),
+                                  const Spacer(),
+                                  Column(
+                                    children: [
+                                      const Row(
+                                        children: [
+                                          Text(
+                                            "+91 471 4053483",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 10),
+                                          ),
+                                          VerticalDivider(
+                                            width: 20,
+                                            thickness: 3,
+                                            indent: 20,
+                                            endIndent: 0,
                                             color: Colors.white,
                                           ),
-                                          initialValue: selectedItem,
-                                          onSelected: (MenuItem item) {
-                                            setState(() {
-                                              selectedItem = item;
-                                            });
-                                          },
-                                          itemBuilder: (BuildContext context) =>
-                                              <PopupMenuEntry<MenuItem>>[
-                                            const PopupMenuItem<MenuItem>(
-                                              value: MenuItem.Homeone,
-                                              child: Text('Home'),
+                                          Text("framesnakshatra@gmail.com",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 10))
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          IconButton(
+                                            icon: const FaIcon(
+                                              size: 15,
+                                              FontAwesomeIcons.facebook,
+                                              color: Colors.white,
                                             ),
-                                            const PopupMenuItem<MenuItem>(
-                                              value: MenuItem.Aboutusone,
-                                              child: Text('About Us'),
+                                            onPressed: () => _launchFacebookUrl(),
+                                            // _launchURL(
+                                            //     'https://www.facebook.com/'),
+                                          ),
+                                          IconButton(
+                                            icon: const FaIcon(
+                                              size: 15,
+                                              FontAwesomeIcons.instagram,
+                                              color: Color.fromARGB(
+                                                  255, 217, 83, 128),
                                             ),
-                                            const PopupMenuItem<MenuItem>(
-                                              value: MenuItem.Contactusone,
-                                              child: Text('Contact Us'),
-                                            ),
-                                            const PopupMenuItem<MenuItem>(
-                                              value: MenuItem.Servicesone,
-                                              child: Text('Services'),
-                                            ),
-                                            const PopupMenuItem<MenuItem>(
-                                              value: MenuItem.Demoone,
-                                              child: Text(
-                                                'Demo',
-                                                selectionColor: cGreen,
+                                            onPressed: () => _launchInstaUrl(),
+                                            // _launchURL(
+                                            //     'https://www.instagram.com/?hl=en'),
+                                          ),
+                                          IconButton(
+                                              focusColor: Colors.black,
+                                              icon: const FaIcon(
+                                                size: 15,
+                                                FontAwesomeIcons.xTwitter,
+                                                color: Colors.white,
                                               ),
+                                              onPressed: () => _launchTwitterUrl()
+                                              //  _launchURL(
+                                              //     'https://x.com/home'),
+                                              ),
+                                          IconButton(
+                                              icon: const FaIcon(
+                                                size: 15,
+                                                FontAwesomeIcons.youtube,
+                                                color: Colors.red,
+                                              ),
+                                              onPressed: () => _launchyouTubeUrl()
+                                              // _launchURL(
+                                              //     'https://www.youtube.com/feed/you'),
+                                              ),
+                                          const SizedBox(
+                                            width: 10,
+                                          ),
+                                          PopupMenuButton<MenuItem>(
+                                            icon: const Icon(
+                                              Icons.menu,
+                                              size: 30,
+                                              color: Colors.white,
                                             ),
-                                          ],
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
-                            )),
-                ),
-              ],
-            ),
-            ResponsiveWebSite.isDesktop(context)
-                ? Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(),
-                        child: Container(
-                          height: 548,
-                          color: Colors.black,
-                          width: screenSize.width / 1.575,
-                          child:  const VideoPlayerDemo1(),
+                                            initialValue: selectedItem,
+                                            onSelected: (MenuItem item) {
+                                              setState(() {
+                                                selectedItem = item;
+                                              });
+                                            },
+                                            itemBuilder: (BuildContext context) =>
+                                                <PopupMenuEntry<MenuItem>>[
+                                              const PopupMenuItem<MenuItem>(
+                                                value: MenuItem.Homeone,
+                                                child: Text('Home'),
+                                              ),
+                                              const PopupMenuItem<MenuItem>(
+                                                value: MenuItem.Aboutusone,
+                                                child: Text('About Us'),
+                                              ),
+                                              const PopupMenuItem<MenuItem>(
+                                                value: MenuItem.Contactusone,
+                                                child: Text('Contact Us'),
+                                              ),
+                                              const PopupMenuItem<MenuItem>(
+                                                value: MenuItem.Servicesone,
+                                                child: Text('Services'),
+                                              ),
+                                              const PopupMenuItem<MenuItem>(
+                                                value: MenuItem.Demoone,
+                                                child: Text(
+                                                  'Demo',
+                                                  selectionColor: cGreen,
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              )),
+                  ),
+                ],
+              ),
+              ResponsiveWebSite.isDesktop(context)
+                  ? Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(),
+                          child: Container(
+                            height: 548,
+                            color: Colors.black,
+                            width: screenSize.width / 1.575,
+                            child: const VideoPlayerDemo1(),
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(),
-                        child: Container(
-                          height: 548,
-                          width: screenSize.width - screenSize.width / 1.56,
-                          color: Colors.black,
-                          child: const AboutVideoText(),
+                        Padding(
+                          padding: const EdgeInsets.only(),
+                          child: Container(
+                            height: 548,
+                            width: screenSize.width - screenSize.width / 1.56,
+                            color: Colors.black,
+                            child: const AboutVideoText(),
+                          ),
                         ),
-                      ),
-                    ],
-                  )
-                : ResponsiveWebSite.isTablet(context)
-                    ? Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Container(
-                              height: 400,
-                              color: Colors.black,
-                              width: double.infinity,
-                              child:  const Expanded(child:VideoPlayerApp()),
+                      ],
+                    )
+                  : ResponsiveWebSite.isTablet(context)
+                      ? Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Container(
+                                height: 400,
+                                color: Colors.black,
+                                width: double.infinity,
+                                child: const Expanded(child: VideoPlayerApp()),
+                              ),
                             ),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.all(10.0),
-                            child: SizedBox(
-                              height: 400,
-                              child: AboutVideoText(),
-                              // width: screenSize.width/2,
-                              // child: VideoPlayerDemo(),
+                            const Padding(
+                              padding: EdgeInsets.all(10.0),
+                              child: SizedBox(
+                                height: 400,
+                                child: AboutVideoText(),
+                                // width: screenSize.width/2,
+                                // child: VideoPlayerDemo(),
+                              ),
                             ),
-                          ),
-                        ],
-                      )
-                    : Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Container(
-                              height: 300,
-                              color: Colors.black,
-                              child:  const VideoPlayerDemo1(),
-                             //  const VideoPlayerApp(),
+                          ],
+                        )
+                      : Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Container(
+                                height: 300,
+                                color: Colors.black,
+                                child: const VideoPlayerDemo1(),
+                                //  const VideoPlayerApp(),
+                              ),
                             ),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.all(10.0),
-                            child: SizedBox(
-                              height: 400,
-                              child: AboutVideoText(),
-                              // width: screenSize.width/2,
-                              // child: VideoPlayerDemo(),
+                            const Padding(
+                              padding: EdgeInsets.all(10.0),
+                              child: SizedBox(
+                                height: 400,
+                                child: AboutVideoText(),
+                                // width: screenSize.width/2,
+                                // child: VideoPlayerDemo(),
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-            const NakshatraReadMoreContainerWidget(),
-            const VideoSectionContainer(),
-            const ContactAndDeatilsWidget(),
-            const FooterSectionScreen(),
-            const NakshatraFooterBar(),
-            const CopyRightWidget()
-          ],
-        ),
-      )),
+                          ],
+                        ),
+              const NakshatraReadMoreContainerWidget(),
+              const VideoSectionContainer(),
+              const ContactAndDeatilsWidget(),
+              const FooterSectionScreen(),
+              const NakshatraFooterBar(),
+              const CopyRightWidget()
+            ],
+          ),
+        )),
+      ),
     );
   }
 

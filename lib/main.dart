@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nakshatra_frames/view/user/widgets/video_player/main_video_player.dart';
+import 'package:nakshatra_frames/view/user/home_page/home_page.dart';
 
 void main() {
     WidgetsFlutterBinding.ensureInitialized();
@@ -15,13 +15,7 @@ class MyApp extends StatelessWidget {
     return  MaterialApp(
       title: 'Nakshatra Frames',
       debugShowCheckedModeBanner: false,
-      home:Scaffold(
-        body: SafeArea(child: ListView(
-          children: const [
-            VideoPlayerDemo1()
-          ],
-        )),
-      ),
+      home:NakshatraFramesHomePage()
 
     );
   }
