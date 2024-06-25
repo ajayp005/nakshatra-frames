@@ -90,7 +90,7 @@ class HomePageImageWidget extends StatelessWidget {
                             textAlign: TextAlign.center,
                           ),
                         ],
-                        totalRepeatCount: 3, // Repeat animation 3 times
+                        totalRepeatCount: 4, // Repeat animation 3 times
                         pause: const Duration(
                             milliseconds: 500), // Pause between repeats
                         displayFullTextOnTap: true, // Display full text on tap

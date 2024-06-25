@@ -180,94 +180,124 @@ class NakshatraFramesHomePage extends StatelessWidget {
                                                   fontSize: 10))
                                         ],
                                       ),
-                                      Row(
-                                        children: [
-                                          IconButton(
-                                            icon: const FaIcon(
-                                              size: 15,
-                                              FontAwesomeIcons.facebook,
-                                              color: Colors.white,
+                                     Padding(
+                                      padding: const EdgeInsets.only(left: 90),
+                                      child: SizedBox(
+                                        width: 150,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                          children: [
+                                            GestureDetector(
+                                              onTap: () {
+                                                _launchTwitterUrl();
+                                              },
+                                              child: Image.asset('webassets/videos/x-logo.png',height: 17,width: 17,)),
+                                               GestureDetector(
+                                              onTap: () {
+                                                _launchFacebookUrl();
+                                              },
+                                              child: Image.asset('webassets/videos/Facebook_logo-.png',height: 18,width: 18,)),
+                                               GestureDetector(
+                                              onTap: () {
+                                                _launchInstaUrl();
+                                              },
+                                              child: Image.asset('webassets/videos/Instagram_logo.png',height: 18,width: 18,)),
+                                                GestureDetector(
+                                              onTap: () {
+                                                _launchyouTubeUrl();
+                                              },
+                                              child: Image.asset('webassets/videos/Youtube_logo_.png',height: 18,width: 18,)),
+                                            // IconButton(
+                                            //   icon: const FaIcon(
+                                            //     size: 15,
+                                            //     FontAwesomeIcons.facebook,
+                                            //     color: Colors.white,
+                                            //   ),
+                                            //   onPressed: () => _launchFacebookUrl(),
+                                            //   // _launchURL(
+                                            //   //     'https://www.facebook.com/'),
+                                            // ),
+                                            // IconButton(
+                                            //   icon: const FaIcon(
+                                            //     size: 15,
+                                            //     FontAwesomeIcons.instagram,
+                                            //     color: Color.fromARGB(
+                                            //         255, 217, 83, 128),
+                                            //   ),
+                                            //   onPressed: () => _launchInstaUrl(),
+                                            //   // _launchURL(
+                                            //   //     'https://www.instagram.com/?hl=en'),
+                                            // ),
+                                            // // IconButton(
+                                            //   focusColor: Colors.black,
+                                            //   icon: const FaIcon(
+                                            //     size: 15,
+                                            //     FontAwesomeIcons.xTwitter,
+                                            //     color: Colors.white,
+                                            //   ),
+                                            //   onPressed: () =>_launchTwitterUrl()
+                                            //   //  _launchURL(
+                                            //   //     'https://x.com/home'),
+                                            // ),
+                                            // IconButton(
+                                            //   icon: const FaIcon(
+                                            //     size: 15,
+                                            //     FontAwesomeIcons.youtube,
+                                            //     color: Colors.red,
+                                            //   ),
+                                            //   onPressed: () => _launchyouTubeUrl()
+                                            //   // _launchURL(
+                                            //   //     'https://www.youtube.com/feed/you'),
+                                            // // ),
+                                            const SizedBox(
+                                              width: 2,
                                             ),
-                                            onPressed: () => _launchFacebookUrl(),
-                                            // _launchURL(
-                                            //     'https://www.facebook.com/'),
-                                          ),
-                                          IconButton(
-                                            icon: const FaIcon(
-                                              size: 15,
-                                              FontAwesomeIcons.instagram,
-                                              color: Color.fromARGB(
-                                                  255, 217, 83, 128),
-                                            ),
-                                            onPressed: () => _launchInstaUrl(),
-                                            // _launchURL(
-                                            //     'https://www.instagram.com/?hl=en'),
-                                          ),
-                                          IconButton(
-                                              focusColor: Colors.black,
-                                              icon: const FaIcon(
-                                                size: 15,
-                                                FontAwesomeIcons.xTwitter,
-                                                color: Colors.white,
-                                              ),
-                                              onPressed: () => _launchTwitterUrl()
-                                              //  _launchURL(
-                                              //     'https://x.com/home'),
-                                              ),
-                                          IconButton(
-                                              icon: const FaIcon(
-                                                size: 15,
-                                                FontAwesomeIcons.youtube,
-                                                color: Colors.red,
-                                              ),
-                                              onPressed: () => _launchyouTubeUrl()
-                                              // _launchURL(
-                                              //     'https://www.youtube.com/feed/you'),
-                                              ),
-                                          const SizedBox(
-                                            width: 10,
-                                          ),
-                                          PopupMenuButton<MenuItem>(
-                                            icon: const Icon(
-                                              Icons.menu,
-                                              size: 30,
-                                              color: Colors.white,
-                                            ),
-                                            initialValue: selectedItem,
-                                            onSelected: (MenuItem item) {
-                                              setState(() {
-                                                selectedItem = item;
-                                              });
-                                            },
-                                            itemBuilder: (BuildContext context) =>
-                                                <PopupMenuEntry<MenuItem>>[
-                                              const PopupMenuItem<MenuItem>(
-                                                value: MenuItem.Homeone,
-                                                child: Text('Home'),
-                                              ),
-                                              const PopupMenuItem<MenuItem>(
-                                                value: MenuItem.Aboutusone,
-                                                child: Text('About Us'),
-                                              ),
-                                              const PopupMenuItem<MenuItem>(
-                                                value: MenuItem.Contactusone,
-                                                child: Text('Contact Us'),
-                                              ),
-                                              const PopupMenuItem<MenuItem>(
-                                                value: MenuItem.Servicesone,
-                                                child: Text('Services'),
-                                              ),
-                                              const PopupMenuItem<MenuItem>(
-                                                value: MenuItem.Demoone,
-                                                child: Text(
-                                                  'Demo',
-                                                  selectionColor: cGreen,
+                                            Padding(
+                                              padding: const EdgeInsets.only(right: 1),
+                                              child: PopupMenuButton<MenuItem>(
+                                                icon: const Icon(
+                                                  Icons.menu,
+                                                  size: 30,
+                                                  color: Colors.white,
                                                 ),
+                                                initialValue: selectedItem,
+                                                onSelected: (MenuItem item) {
+                                                  setState(() {
+                                                    selectedItem = item;
+                                                  });
+                                                },
+                                                itemBuilder: (BuildContext context) =>
+                                                    <PopupMenuEntry<MenuItem>>[
+                                                  const PopupMenuItem<MenuItem>(
+                                                    value: MenuItem.Homeone,
+                                                    child: Text('Home'),
+                                                  ),
+                                                  const PopupMenuItem<MenuItem>(
+                                                    value: MenuItem.Aboutusone,
+                                                    child: Text('About Us'),
+                                                  ),
+                                                  const PopupMenuItem<MenuItem>(
+                                                    value: MenuItem.Contactusone,
+                                                    child: Text('Contact Us'),
+                                                  ),
+                                                  const PopupMenuItem<MenuItem>(
+                                                    value: MenuItem.Servicesone,
+                                                    child: Text('Services'),
+                                                  ),
+                                                  const PopupMenuItem<MenuItem>(
+                                                    value: MenuItem.Demoone,
+                                                    child: Text(
+                                                      'Demo',
+                                                      selectionColor: cGreen,
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                            ],
-                                          )
-                                        ],
-                                      )
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    )
                                     ],
                                   )
                                 ],
