@@ -18,8 +18,8 @@ class NakshatraReadMoreContainerWidget extends StatelessWidget {
               ? 300
               : 350,
       child: Row(
-        mainAxisAlignment:ResponsiveWebSite.isMobile(context)?MainAxisAlignment.center:
-         MainAxisAlignment.spaceBetween,
+        mainAxisAlignment:MainAxisAlignment.center,
+      // :  MainAxisAlignment.spaceBetween,
         children: [
           // Padding(
           //   padding: const EdgeInsets.only(left: 10),
