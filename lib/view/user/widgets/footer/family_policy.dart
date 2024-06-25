@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nakshatra_frames/view/user/widgets/colors.dart';
+import 'package:nakshatra_frames/view/colors/colors.dart';
 class FamilyPolicyScreen extends StatefulWidget {
   const FamilyPolicyScreen({super.key});
 

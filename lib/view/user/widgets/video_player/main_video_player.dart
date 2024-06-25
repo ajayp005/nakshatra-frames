@@ -30,6 +30,7 @@ class _VideoPlayerDemo1State extends State<VideoPlayerDemo1> {
   }
 
   void _onVisibilityChanged(VisibilityInfo info) {
+    // _controller.play();
     log("Visibility changed: ${info.visibleFraction}");
     if (info.visibleFraction == 0 && _controller.value.isPlaying) {
       log("Video paused because it is not visible.");
@@ -41,12 +42,18 @@ class _VideoPlayerDemo1State extends State<VideoPlayerDemo1> {
       _controller.play();
     }
   }
+  
+  void _onVisible(VisibilityInfo info) {
+    VideoPlayerOptions(allowBackgroundPlayback: true);
+    
+  }
 
   @override
   Widget build(BuildContext context) {
     return VisibilityDetector(
       key: const Key('video-player'),
       onVisibilityChanged: _onVisibilityChanged,
+      
       child: _controller.value.isInitialized
           ? AspectRatio(
               aspectRatio: _controller.value.aspectRatio,

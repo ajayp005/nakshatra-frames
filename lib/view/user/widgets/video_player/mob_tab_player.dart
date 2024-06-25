@@ -100,6 +100,7 @@ class _VideoPlayerSmallState extends State<VideoPlayerSmall> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        mini: true,
         onPressed: () {
           setState(() {
             _smallcontroller.value.isPlaying
@@ -174,6 +175,7 @@ class _VideoPlayerSecondState extends State<VideoPlayerSecond> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+         mini: true,
         onPressed: () {
           setState(() {
             _secondcontroller.value.isPlaying
@@ -249,6 +251,7 @@ class _VideoPlayerAppThirdState extends State<VideoPlayerAppThird> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+         mini: true,
         onPressed: () {
           setState(() {
             _thirdcontroller.value.isPlaying
@@ -323,6 +326,7 @@ class _VideoPlayerAppFourthState extends State<VideoPlayerAppFourth> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+         mini: true,
         onPressed: () {
           setState(() {
             _fourthcontroller.value.isPlaying

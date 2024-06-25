@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nakshatra_frames/view/fonts/fonts.dart';
-import 'package:nakshatra_frames/view/user/widgets/colors.dart';
+import 'package:nakshatra_frames/view/colors/colors.dart';
 class PrivacyPolicy extends StatefulWidget {
   const PrivacyPolicy({super.key});
 

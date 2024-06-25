@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:nakshatra_frames/view/colors/colors.dart';
 import 'package:nakshatra_frames/view/user/home_page/read_more.dart';
 import 'package:nakshatra_frames/view/user/home_page/video_section_container/contact_details/contact_details.dart';
 import 'package:nakshatra_frames/view/user/home_page/video_section_container/video_section_container.dart';
-import 'package:nakshatra_frames/view/user/widgets/colors.dart';
 import 'package:nakshatra_frames/view/user/widgets/footer/copy_right.dart';
 import 'package:nakshatra_frames/view/user/widgets/footer/footer.dart';
 import 'package:nakshatra_frames/view/user/widgets/footer/footer_section.dart';
@@ -93,7 +93,7 @@ Future<void> _launchInstaUrl() async {
                                           FontAwesomeIcons.facebook,
                                           color: Colors.blue,
                                         ),
-                                        onPressed: () => _launchFacebookUrl,
+                                        onPressed: () => _launchFacebookUrl(),
                                         // _launchURL(
                                         //     'https://www.facebook.com/'),
                                       ),
@@ -104,8 +104,9 @@ Future<void> _launchInstaUrl() async {
                                           color:
                                               Color.fromARGB(255, 217, 83, 128),
                                         ),
-                                        onPressed: () => _launchURL(
-                                            'https://www.instagram.com/?hl=en'),
+                                        onPressed: () => _launchInstaUrl(),
+                                        // _launchURL(
+                                        //     'https://www.instagram.com/?hl=en'),
                                       ),
                                       IconButton(
                                         focusColor: Colors.black,
@@ -114,8 +115,9 @@ Future<void> _launchInstaUrl() async {
                                           FontAwesomeIcons.xTwitter,
                                           color: Colors.white,
                                         ),
-                                        onPressed: () => _launchURL(
-                                            'https://x.com/home'),
+                                        onPressed: () => _launchTwitterUrl(),
+                                        // _launchURL(
+                                        //     'https://x.com/home'),
                                       ),
                                       IconButton(
                                         icon: const FaIcon(
@@ -123,8 +125,9 @@ Future<void> _launchInstaUrl() async {
                                           FontAwesomeIcons.youtube,
                                           color: Colors.red,
                                         ),
-                                        onPressed: () => _launchURL(
-                                            'https://www.youtube.com/feed/you'),
+                                        onPressed: () => _launchyouTubeUrl(),
+                                        // _launchURL(
+                                        //     'https://www.youtube.com/feed/you'),
                                       ),
                                     ],
                                   ),
@@ -139,6 +142,7 @@ Future<void> _launchInstaUrl() async {
                                     : const AppbarWidgets(),
                               ],
                             )
+                            ///mobile view ......----->below
                           : Row(
                               children: [
                                 SizedBox(
@@ -179,7 +183,7 @@ Future<void> _launchInstaUrl() async {
                                             FontAwesomeIcons.facebook,
                                             color: Colors.white,
                                           ),
-                                          onPressed: () => _launchFacebookUrl,
+                                          onPressed: () => _launchFacebookUrl(),
                                           // _launchURL(
                                           //     'https://www.facebook.com/'),
                                         ),
@@ -190,8 +194,9 @@ Future<void> _launchInstaUrl() async {
                                             color: Color.fromARGB(
                                                 255, 217, 83, 128),
                                           ),
-                                          onPressed: () => _launchURL(
-                                              'https://www.instagram.com/?hl=en'),
+                                          onPressed: () => _launchInstaUrl(),
+                                          // _launchURL(
+                                          //     'https://www.instagram.com/?hl=en'),
                                         ),
                                         IconButton(
                                           focusColor: Colors.black,
@@ -200,8 +205,9 @@ Future<void> _launchInstaUrl() async {
                                             FontAwesomeIcons.xTwitter,
                                             color: Colors.white,
                                           ),
-                                          onPressed: () => _launchURL(
-                                              'https://x.com/home'),
+                                          onPressed: () =>_launchTwitterUrl()
+                                          //  _launchURL(
+                                          //     'https://x.com/home'),
                                         ),
                                         IconButton(
                                           icon: const FaIcon(
@@ -209,8 +215,9 @@ Future<void> _launchInstaUrl() async {
                                             FontAwesomeIcons.youtube,
                                             color: Colors.red,
                                           ),
-                                          onPressed: () => _launchURL(
-                                              'https://www.youtube.com/feed/you'),
+                                          onPressed: () => _launchyouTubeUrl()
+                                          // _launchURL(
+                                          //     'https://www.youtube.com/feed/you'),
                                         ),
                                         const SizedBox(
                                           width: 10,
@@ -316,7 +323,8 @@ Future<void> _launchInstaUrl() async {
                             child: Container(
                               height: 300,
                               color: Colors.black,
-                              child:  const VideoPlayerApp(),
+                              child:  const VideoPlayerDemo1(),
+                             //  const VideoPlayerApp(),
                             ),
                           ),
                           const Padding(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nakshatra_frames/view/user/widgets/colors.dart';
+import 'package:nakshatra_frames/view/colors/colors.dart';
 import 'package:nakshatra_frames/view/user/widgets/google_monstserrat_widget.dart';
 class WhyChooseUs extends StatelessWidget {
   const WhyChooseUs({super.key});
