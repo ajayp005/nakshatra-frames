@@ -350,14 +350,14 @@ class VideoPlayer1ContainerWidgets extends StatelessWidget {
           ),
         ),
         const Text(
-          "Lepton Dujo",
+          "Lepton LilSTARS ",
           // state.videos[index].title,
           // style: const TextStyle(
           style: TextStyle(color: Colors.white),
           //     fontWeight: FontWeight.w400),
         ),
         GooglePoppinsWidgets(
-          text: "School Website and App",
+          text: "School Product",
           //  state.videos[index].subtitle,
           fontsize: 10,
           color: Colors.white,
