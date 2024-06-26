@@ -11,7 +11,7 @@ class FooterSectionScreen extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(color:cBlack),
       height: ResponsiveWebSite.isMobile(context)
-          ? 716
+          ? 670
           : ResponsiveWebSite.isTablet(context)
               ? 500
               : 320,

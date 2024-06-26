@@ -11,7 +11,7 @@ class ContactAndDeatilsWidget extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     return Container(
         color: cBlack,
-        height:ResponsiveWebSite.isMobile(context)?620:ResponsiveWebSite.isTablet(context)?560: 400,
+        height:ResponsiveWebSite.isMobile(context)?530:ResponsiveWebSite.isTablet(context)?560: 400,
         child: ResponsiveWebSite.isDesktop(context)
             ? Row(
                 //>>>>>>>>>>>>>>>>>>>>    DESK TOP VIEW <<<<<<<<<<<<<<<<<<<<<<
