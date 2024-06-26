@@ -46,8 +46,9 @@ class NakshatraReadMoreContainerWidget extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(top: ResponsiveWebSite.isDesktop(context)?50:ResponsiveWebSite.isMobile(context)?10:20 ),
                 child: SizedBox(
+                 // color: cBlue,
                   height:ResponsiveWebSite.isMobile(context)?30: 60,
-                  width: size.width / 1.9,
+                  width: ResponsiveWebSite.isMobile(context)?250: size.width / 1.9,
                   child: Center(
                     child: Padding(
                       padding: ResponsiveWebSite.isDesktop(context)
@@ -81,18 +82,13 @@ class NakshatraReadMoreContainerWidget extends StatelessWidget {
               // )
               SizedBox(
                 height:200,
-                width: size.width / 1.9,
+                width:ResponsiveWebSite.isMobile(context)?250: size.width / 1.9,
                 child: Center(
-                  child: Padding(
-                    padding: ResponsiveWebSite.isDesktop(context)
-                        ? const EdgeInsets.only()
-                        : const EdgeInsets.only(left: 0),
-                    child: GooglePoppinsWidgets(
-                        text:
-                            'At Nakshatra Frames, we are dedicated to the art of storytelling through the magic of film. As a premier film production company based in Trivandrum, India, we specialize in creating captivating movies, engaging ad films, and vibrant YouTube content. As a proud sister concern of Lepton Communications, officially LeptonPlus Communications (OPC) Pvt Ltd, we bring a legacy of creativity, innovation, and excellence to every project.',
-                        fontsize: ResponsiveWebSite.isTablet(context) ? 13 :ResponsiveWebSite.isMobile(context)?10: 15,
-                        color: Colors.white),
-                  ),
+                  child: GooglePoppinsWidgets(
+                      text:
+                          'At Nakshatra Frames, we are dedicated to the art of storytelling through the magic of film. As a premier film production company based in Trivandrum, India, we specialize in creating captivating movies, engaging ad films, and vibrant YouTube content. As a proud sister concern of Lepton Communications, officially LeptonPlus Communications (OPC) Pvt Ltd, we bring a legacy of creativity, innovation, and excellence to every project.',
+                      fontsize: ResponsiveWebSite.isTablet(context) ? 13 :ResponsiveWebSite.isMobile(context)?10: 15,
+                      color: Colors.white),
                 ),
               ),
             ],

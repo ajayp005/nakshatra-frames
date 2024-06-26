@@ -45,31 +45,35 @@ class VideoSectionContainer extends StatelessWidget {
                         ? Row(
                             children: [
                               Expanded(
+                                flex: 1,
                                 child: SizedBox(
                                   height: 300,
                                   child: FullscreenSliderDemo(),
                                 ),
                               ),
-                              Container(
-                                height: 300,
-                                width: size.width / 3,
-                                color: Colors.black,
-                                child: ListView.builder(
-                                    itemCount: 4,
-                                    shrinkWrap: true,
-                                    physics:
-                                        const AlwaysScrollableScrollPhysics(),
-                                    itemBuilder: (context, index) {
-                                      return  Card(
-                                        child: ListTile(
-                                          leading:SizedBox(child: Image.asset("webassets/images/leptonlogo.png"),),
-                                          title:  Text(heading[index]),
-                                          subtitle:  Text(detailText[index]),
-                                          trailing: const Icon(Icons.more_vert),
-                                          isThreeLine: true,
-                                        ),
-                                      );
-                                    }),
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  height: 300,
+                                 // width: size.width / 3,
+                                  color: Colors.black,
+                                  child: ListView.builder(
+                                      itemCount: 4,
+                                      shrinkWrap: true,
+                                      physics:
+                                          const AlwaysScrollableScrollPhysics(),
+                                      itemBuilder: (context, index) {
+                                        return  Card(
+                                          child: ListTile(
+                                            leading:SizedBox(child: Image.asset("webassets/images/leptonlogo.png"),),
+                                            title:  Text(heading[index]),
+                                            subtitle:  Text(detailText[index]),
+                                            trailing: const Icon(Icons.more_vert),
+                                            isThreeLine: true,
+                                          ),
+                                        );
+                                      }),
+                                ),
                               ),
                               // Container(
                               //   height: 300,
@@ -135,7 +139,7 @@ class VideoSectionContainer extends StatelessWidget {
                   )),
                 ),
                 SizedBox(
-                  height: ResponsiveWebSite.isDesktop(context) ? 600 : 1150,
+                  height: ResponsiveWebSite.isDesktop(context) ? 600 :ResponsiveWebSite.isTablet(context)?410: 1150,
                   
                   child:  ResponsiveWebSite.isMobile(context) ? 
                   const Column(

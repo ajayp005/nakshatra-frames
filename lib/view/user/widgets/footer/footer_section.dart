@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nakshatra_frames/view/colors/colors.dart';
 import 'package:nakshatra_frames/view/user/widgets/footer/footer_text_widgets.dart';
 import 'package:nakshatra_frames/view/user/widgets/responsive/responsive.dart';
 
@@ -8,11 +9,11 @@ class FooterSectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(color:Colors.black),
+      decoration: const BoxDecoration(color:cBlack),
       height: ResponsiveWebSite.isMobile(context)
           ? 716
           : ResponsiveWebSite.isTablet(context)
-              ? 600
+              ? 500
               : 320,
       width: double.infinity,
       child: ResponsiveWebSite.isTablet(context)

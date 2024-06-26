@@ -7,6 +7,7 @@ import 'package:nakshatra_frames/view/user/widgets/footer/terms_and_conditions.d
 import 'package:nakshatra_frames/view/user/widgets/footer/trademark_policy.dart';
 import 'package:nakshatra_frames/view/user/widgets/footer/who_we_are.dart';
 import 'package:nakshatra_frames/view/user/widgets/footer/why_choose_us.dart';
+import 'package:nakshatra_frames/view/user/widgets/responsive/responsive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AddressWidget extends StatelessWidget {
@@ -65,7 +66,7 @@ class LegalWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       // color: Colors.amber,
-      height: 250,
+      height:ResponsiveWebSite.isDesktop(context) ?250:200,
       width: 200,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

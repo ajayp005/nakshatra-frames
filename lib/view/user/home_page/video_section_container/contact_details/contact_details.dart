@@ -10,8 +10,8 @@ class ContactAndDeatilsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return Container(
-        color: Colors.black,
-        height:ResponsiveWebSite.isMobile(context)?570: 400,
+        color: cBlack,
+        height:ResponsiveWebSite.isMobile(context)?620:ResponsiveWebSite.isTablet(context)?560: 400,
         child: ResponsiveWebSite.isDesktop(context)
             ? Row(
                 //>>>>>>>>>>>>>>>>>>>>    DESK TOP VIEW <<<<<<<<<<<<<<<<<<<<<<
@@ -241,8 +241,8 @@ class ContactAndDeatilsWidget extends StatelessWidget {
                                     },
                                     child: Image.asset(
                                       "webassets/images/whatsApp_image.png",
-                                      height: screenSize.width / 15,
-                                      width: screenSize.width / 10,
+                                      height: 60,
+                                      width: 100,
                                     ),
                                   ),
                                 ),
@@ -314,8 +314,8 @@ class ContactAndDeatilsWidget extends StatelessWidget {
                                     },
                                     child: Image.asset(
                                       "webassets/images/whatsApp_image.png",
-                                      height: screenSize.width / 15,
-                                      width: screenSize.width / 10,
+                                       height: 60,
+                                      width: 100,
                                     ),
                                   ),
                                 ),

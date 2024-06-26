@@ -4,6 +4,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nakshatra_frames/controller/scroll.dart';
+import 'package:nakshatra_frames/view/colors/colors.dart';
 import 'package:nakshatra_frames/view/user/home_page/about/about.dart';
 import 'package:nakshatra_frames/view/user/widgets/responsive/responsive.dart';
 
@@ -32,31 +33,36 @@ class HomePageImageWidget extends StatelessWidget {
       controller: scrollController,
       child: Container(
         height: ResponsiveWebSite.isMobile(context)
-            ? 550
+            ? 350
             : ResponsiveWebSite.isTablet(context)
                 ? 650
                 : 850,
         width: double.infinity,
-        color: Colors.black,
+        color: cBlack,
         child: Stack(
           children: [
             // Displaying the appropriate image based on device type
             ResponsiveWebSite.isMobile(context)
-                ? const Image(
-                    image: AssetImage(
-                      'webassets/images/naksfrmemob.png',
-                    ),
-                    fit: BoxFit.fill,
-                  )
-                : const Image(
-                    image: AssetImage(
-                      'webassets/images/newnksht.png',
-                    ),
-                    fit: BoxFit.fill,
-                  ),
+                ?Image.asset("webassets/images/naksfrmemob.png",height: 350,width: double.infinity,fit: BoxFit.fill,)
+                //  const Image(
+                //     image: AssetImage(
+                //       'webassets/images/naksfrmemob.png',
+                //     ),
+                //     fit: BoxFit.fill,
+                //   )
+                : Image.asset("webassets/images/newnksht.png",
+                height: ResponsiveWebSite.isTablet(context)? 650: 850,
+                width: double.infinity,fit: BoxFit.fill,),
+                // const Image(
+                //     image: AssetImage(
+                //       'webassets/images/newnksht.png',
+                //     ),
+                //     fit: BoxFit.fill,
+                //   ),
             // Positioned widget to place the Align widget at the bottom center
             Positioned(
-              bottom: 200, // Adjust bottom position as needed
+              top:ResponsiveWebSite.isMobile(context) ?210:500,
+              bottom: ResponsiveWebSite.isMobile(context) ?00:00, // Adjust bottom position as needed
               left: 0,
               right: 0,
               child: Align(

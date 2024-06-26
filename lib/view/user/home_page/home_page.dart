@@ -13,7 +13,6 @@ import 'package:nakshatra_frames/view/user/widgets/home_page_widgets/home_page_w
 import 'package:nakshatra_frames/view/user/widgets/responsive/responsive.dart';
 import 'package:nakshatra_frames/view/user/widgets/video_player/about_video/about_video.dart';
 import 'package:nakshatra_frames/view/user/widgets/video_player/main_video_player.dart';
-import 'package:nakshatra_frames/view/user/widgets/video_player/mob_tab_player.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -69,7 +68,7 @@ class NakshatraFramesHomePage extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: cBlack,
       body: Obx(() => SafeArea(
             child: SingleChildScrollView(
           controller: scrollController,
@@ -85,67 +84,96 @@ class NakshatraFramesHomePage extends StatelessWidget {
                         height: ResponsiveWebSite.isMobile(context) ? 70 : 80,
                         color: Colors.transparent,
                         child: ResponsiveWebSite.isDesktop(context)
-                            ? Row(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 20),
-                                    child: Row(
-                                      children: [
-                                        IconButton(
-                                          icon: const FaIcon(
-                                            size: 20,
-                                            FontAwesomeIcons.facebook,
-                                            color: Colors.blue,
+                            ? Column(
+                              children: [
+                                 const Padding(
+                                 padding: EdgeInsets.only(right: 190),
+                                 child: Row(
+                                        children: [
+                                          Spacer(),
+                                          Text(
+                                            "+91 471 4053483",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15),
                                           ),
-                                          onPressed: () => _launchFacebookUrl(),
-                                          // _launchURL(
-                                          //     'https://www.facebook.com/'),
-                                        ),
-                                        IconButton(
-                                          icon: const FaIcon(
-                                            size: 20,
-                                            FontAwesomeIcons.instagram,
-                                            color:
-                                                Color.fromARGB(255, 217, 83, 128),
-                                          ),
-                                          onPressed: () => _launchInstaUrl(),
-                                          // _launchURL(
-                                          //     'https://www.instagram.com/?hl=en'),
-                                        ),
-                                        IconButton(
-                                          focusColor: Colors.black,
-                                          icon: const FaIcon(
-                                            size: 20,
-                                            FontAwesomeIcons.xTwitter,
+                                          VerticalDivider(
+                                            width: 20,
+                                            thickness: 3,
+                                            indent: 20,
+                                            endIndent: 0,
                                             color: Colors.white,
                                           ),
-                                          onPressed: () => _launchTwitterUrl(),
-                                          // _launchURL(
-                                          //     'https://x.com/home'),
+                                          Text("framesnakshatra@gmail.com",
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 15))
+                                        ],
+                                      ),
+                               ),
+                                Row(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 20),
+                                        child: Row(
+                                          children: [
+                                            IconButton(
+                                              icon: const FaIcon(
+                                                size: 20,
+                                                FontAwesomeIcons.facebook,
+                                                color: Colors.blue,
+                                              ),
+                                              onPressed: () => _launchFacebookUrl(),
+                                              // _launchURL(
+                                              //     'https://www.facebook.com/'),
+                                            ),
+                                            IconButton(
+                                              icon: const FaIcon(
+                                                size: 20,
+                                                FontAwesomeIcons.instagram,
+                                                color:
+                                                    Color.fromARGB(255, 217, 83, 128),
+                                              ),
+                                              onPressed: () => _launchInstaUrl(),
+                                              // _launchURL(
+                                              //     'https://www.instagram.com/?hl=en'),
+                                            ),
+                                            IconButton(
+                                              focusColor: Colors.black,
+                                              icon: const FaIcon(
+                                                size: 20,
+                                                FontAwesomeIcons.xTwitter,
+                                                color: Colors.white,
+                                              ),
+                                              onPressed: () => _launchTwitterUrl(),
+                                              // _launchURL(
+                                              //     'https://x.com/home'),
+                                            ),
+                                            IconButton(
+                                              icon: const FaIcon(
+                                                size: 20,
+                                                FontAwesomeIcons.youtube,
+                                                color: Colors.red,
+                                              ),
+                                              onPressed: () => _launchyouTubeUrl(),
+                                              // _launchURL(
+                                              //     'https://www.youtube.com/feed/you'),
+                                            ),
+                                          ],
                                         ),
-                                        IconButton(
-                                          icon: const FaIcon(
-                                            size: 20,
-                                            FontAwesomeIcons.youtube,
-                                            color: Colors.red,
-                                          ),
-                                          onPressed: () => _launchyouTubeUrl(),
-                                          // _launchURL(
-                                          //     'https://www.youtube.com/feed/you'),
-                                        ),
-                                      ],
-                                    ),
+                                      ),
+                                      const Spacer(),
+                                      ResponsiveWebSite.isMobile(context)
+                                          ? const Icon(
+                                              Icons.menu,
+                                              size: 20,
+                                              color: Colors.white,
+                                            )
+                                          : const AppbarWidgets(),
+                                    ],
                                   ),
-                                  const Spacer(),
-                                  ResponsiveWebSite.isMobile(context)
-                                      ? const Icon(
-                                          Icons.menu,
-                                          size: 20,
-                                          color: Colors.white,
-                                        )
-                                      : const AppbarWidgets(),
-                                ],
-                              )
+                              ],
+                            )
         
                             ///mobile view ......----->below
                             : Row(
@@ -308,23 +336,17 @@ class NakshatraFramesHomePage extends StatelessWidget {
               ResponsiveWebSite.isDesktop(context)
                   ? Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(),
-                          child: Container(
-                            height: 548,
-                            color: Colors.black,
-                            width: screenSize.width / 1.575,
-                            child: const VideoPlayerDemo1(),
-                          ),
+                        Container(
+                          height: 548,
+                          color: Colors.black,
+                          width: screenSize.width / 1.575,
+                          child: const VideoPlayerDemo1(),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(),
-                          child: Container(
-                            height: 548,
-                            width: screenSize.width - screenSize.width / 1.56,
-                            color: Colors.black,
-                            child: const AboutVideoText(),
-                          ),
+                        Container(
+                          height: 548,
+                          width: screenSize.width - screenSize.width / 1.56,
+                          color: Colors.black,
+                          child: const AboutVideoText(),
                         ),
                       ],
                     )
@@ -335,9 +357,9 @@ class NakshatraFramesHomePage extends StatelessWidget {
                               padding: const EdgeInsets.all(10),
                               child: Container(
                                 height: 400,
-                                color: Colors.black,
+                                color: cBlack,
                                 width: double.infinity,
-                                child: const Expanded(child: VideoPlayerApp()),
+                                child: const VideoPlayerDemo1(),
                               ),
                             ),
                             const Padding(
@@ -357,7 +379,7 @@ class NakshatraFramesHomePage extends StatelessWidget {
                               padding: const EdgeInsets.all(10),
                               child: Container(
                                 height: 300,
-                                color: Colors.black,
+                                color: cBlack,
                                 child: const VideoPlayerDemo1(),
                                 //  const VideoPlayerApp(),
                               ),
@@ -388,3 +410,6 @@ class NakshatraFramesHomePage extends StatelessWidget {
 
   void setState(Null Function() param0) {}
 }
+
+
+
