@@ -24,10 +24,10 @@ class NakshatraFramesHomePage extends StatelessWidget {
   ScrollControllerGetx scrollControllerGetx = Get.put(ScrollControllerGetx());
   NakshatraFramesHomePage({super.key});
 
-  final Uri _faceBookUrl = Uri.parse('https://www.facebook.com/');
-  final Uri _twitterUrl = Uri.parse('https://x.com/home');
-  final Uri _instaUrl = Uri.parse('https://www.instagram.com/?hl=en');
-  final Uri _utubeUrl = Uri.parse('https://www.youtube.com/feed/you');
+  final Uri _faceBookUrl = Uri.parse('https://www.facebook.com/profile.php?id=61559760111087');
+  final Uri _twitterUrl = Uri.parse('https://x.com/NakshatraFrames');
+  final Uri _instaUrl = Uri.parse('https://www.instagram.com/nakshatra4you/?hl=en');
+  final Uri _utubeUrl = Uri.parse('https://www.youtube.com/channel/UCZor_k-sD6FAbGLJWd1IXhw');
 
   Future<void> _launchFacebookUrl() async {
     if (!await launchUrl(_faceBookUrl)) {

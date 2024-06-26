@@ -15,31 +15,12 @@ class NakshatraReadMoreContainerWidget extends StatelessWidget {
       height: ResponsiveWebSite.isMobile(context)
           ? 250
           : ResponsiveWebSite.isTablet(context)
-              ? 300
+              ? 325
               : 350,
       child: Row(
         mainAxisAlignment:MainAxisAlignment.center,
       // :  MainAxisAlignment.spaceBetween,
         children: [
-          // Padding(
-          //   padding: const EdgeInsets.only(left: 10),
-          //   child: SizedBox(
-          //     height: ResponsiveWebSite.isTablet(context)
-          //         ? 200
-          //         : ResponsiveWebSite.isMobile(context)
-          //             ? double.infinity
-          //             : 300,
-          //     width: ResponsiveWebSite.isTablet(context)
-          //         ? 120
-          //         : ResponsiveWebSite.isMobile(context)
-          //             ? 100
-          //             : 220,
-          //     // child: Image.asset(
-          //     //   'webassets/images/dance.png',
-          //     //   fit:ResponsiveWebSite.isMobile(context)?BoxFit.fitHeight: BoxFit.fitWidth,
-          //     // ),
-          //   ),
-          // ),
           Column(
             // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -63,26 +44,9 @@ class NakshatraReadMoreContainerWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              // GestureDetector(
-              //   onTap: () {
-              //   showAboutPage(context);
-              //   },
-              //   child: Container(
-              //     height:ResponsiveWebSite.isMobile(context)?20: 35,
-              //     width: ResponsiveWebSite.isTablet(context) ? 100 : 150,
-              //     decoration: BoxDecoration(
-              //         border: Border.all(width: 2, color: Colors.yellow)),
-              //     child: Center(
-              //         child: GooglePoppinsWidgets(
-              //       text: 'Read More...',
-              //       fontsize:ResponsiveWebSite.isMobile(context)?10:12,
-              //       color: Colors.white,
-              //     )),
-              //   ),
-              // )
               SizedBox(
-                height:200,
-                width:ResponsiveWebSite.isMobile(context)?250: size.width / 1.9,
+                height:ResponsiveWebSite.isTablet(context)?225: 200,
+                width:ResponsiveWebSite.isMobile(context)?290:ResponsiveWebSite.isTablet(context)?350: size.width / 1.9,
                 child: Center(
                   child: GooglePoppinsWidgets(
                       text:
@@ -93,22 +57,7 @@ class NakshatraReadMoreContainerWidget extends StatelessWidget {
               ),
             ],
           ),
-          // SizedBox(
-          //          height: ResponsiveWebSite.isTablet(context)
-          //       ? 200
-          //       : ResponsiveWebSite.isMobile(context)
-          //           ? double.infinity
-          //           : 300,
-          //   width: ResponsiveWebSite.isTablet(context)
-          //       ? 50
-          //       : ResponsiveWebSite.isMobile(context)
-          //           ? 20
-          //           : 100,
-          //     // child: Image.asset(
-          //     //   'webassets/images/dance_flip.png',
-          //     //   fit: BoxFit.fitHeight,
-          //     // )
-          //     ),
+          
         ],
       ),
     );
