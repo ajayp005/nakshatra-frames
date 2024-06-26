@@ -135,38 +135,36 @@ class VideoSectionContainer extends StatelessWidget {
                   )),
                 ),
                 SizedBox(
-                  height: ResponsiveWebSite.isDesktop(context) ? 500 : 400,
+                  height: ResponsiveWebSite.isDesktop(context) ? 600 : 1150,
                   
-                  child:  SingleChildScrollView(
-                    child: ResponsiveWebSite.isMobile(context) ? 
-                    const Column(
-                      children: [
-                       VideoPlayer1ContainerWidgets(),
-                       VideoPlayer2ContainerWidgets(),
-                       VideoPlayer3ContainerWidgets(),
-                       VideoPlayer4ContainerWidgets(),
-                    ],)
-                   : const Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            VideoPlayer1ContainerWidgets(),
-                            VideoPlayer2ContainerWidgets(),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            VideoPlayer3ContainerWidgets(),
-                            VideoPlayer4ContainerWidgets(),
-                          ],
-                        ),
-                      ],
-                    ),
+                  child:  ResponsiveWebSite.isMobile(context) ? 
+                  const Column(
+                    children: [
+                     VideoPlayer1ContainerWidgets(),
+                     VideoPlayer2ContainerWidgets(),
+                     VideoPlayer3ContainerWidgets(),
+                     VideoPlayer4ContainerWidgets(),
+                  ],)
+                 : const Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          VideoPlayer1ContainerWidgets(),
+                          VideoPlayer2ContainerWidgets(),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          VideoPlayer3ContainerWidgets(),
+                          VideoPlayer4ContainerWidgets(),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ],

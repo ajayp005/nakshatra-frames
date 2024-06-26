@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nakshatra_frames/view/colors/colors.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerApp extends StatefulWidget {
@@ -53,6 +54,7 @@ class VideoPlayerSmall extends StatefulWidget {
   const VideoPlayerSmall({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _VideoPlayerSmallState createState() => _VideoPlayerSmallState();
 }
 
@@ -63,15 +65,16 @@ class _VideoPlayerSmallState extends State<VideoPlayerSmall> {
   @override
   void initState() {
     super.initState();
-
-    // Create a VideoPlayerController for the video you want to play.
+    // ignore: deprecated_member_use
     _smallcontroller = VideoPlayerController.network(
       'https://firebasestorage.googleapis.com/v0/b/bloctest-39269.appspot.com/o/leptonlilstars.mp4?alt=media&token=2658d296-64af-4b09-90bd-f55a7e1fe2b7'
     );
 
-    // Initialize the VideoPlayerController and store the Future for later use.
     _initializeVideoPlayerFuture = _smallcontroller.initialize().then((_) {
-      setState(() {}); // Ensure the state is updated when the initialization is complete
+      setState(() {}); 
+    });
+    _smallcontroller.addListener(() {
+      setState(() {});
     });
   }
 
@@ -83,23 +86,28 @@ class _VideoPlayerSmallState extends State<VideoPlayerSmall> {
         future: _initializeVideoPlayerFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            // If the VideoPlayerController has finished initialization, build the VideoPlayer widget.
             return Center(
-              child: AspectRatio(
-                aspectRatio: _smallcontroller.value.aspectRatio,
-                child: VideoPlayer(_smallcontroller),
+              child: GestureDetector(    
+                 onTap: () {
+                  setState(() {
+                    _smallcontroller.pause();
+                  });
+                },
+                child: AspectRatio(
+                  aspectRatio: _smallcontroller.value.aspectRatio,
+                  child: VideoPlayer(_smallcontroller),
+                ),
               ),
             );
           } else if (snapshot.hasError) {
-            // If there's an error during initialization, show an error message.
             return const Center(child: Text("Error loading video"));
           } else {
-            // If the VideoPlayerController is still initializing, show a loading spinner.
             return const Center(child: CircularProgressIndicator());
           }
         },
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.transparent,
         mini: true,
         onPressed: () {
           setState(() {
@@ -108,7 +116,7 @@ class _VideoPlayerSmallState extends State<VideoPlayerSmall> {
                 : _smallcontroller.play();
           });
         },
-        child: Icon(
+        child: Icon(color: cWhite,
           _smallcontroller.value.isPlaying ? Icons.pause : Icons.play_arrow,
         ),
       ),floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -117,7 +125,6 @@ class _VideoPlayerSmallState extends State<VideoPlayerSmall> {
 
   @override
   void dispose() {
-    // Dispose of the VideoPlayerController.
     _smallcontroller.dispose();
     super.dispose();
   }
@@ -175,6 +182,7 @@ class _VideoPlayerSecondState extends State<VideoPlayerSecond> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.transparent,
          mini: true,
         onPressed: () {
           setState(() {
@@ -183,7 +191,7 @@ class _VideoPlayerSecondState extends State<VideoPlayerSecond> {
                 : _secondcontroller.play();
           });
         },
-        child: Icon(
+        child: Icon(color: cWhite,
           _secondcontroller.value.isPlaying ? Icons.pause : Icons.play_arrow,
         ),
       ),floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -251,6 +259,7 @@ class _VideoPlayerAppThirdState extends State<VideoPlayerAppThird> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.transparent,
          mini: true,
         onPressed: () {
           setState(() {
@@ -259,7 +268,7 @@ class _VideoPlayerAppThirdState extends State<VideoPlayerAppThird> {
                 : _thirdcontroller.play();
           });
         },
-        child: Icon(
+        child: Icon(color: cWhite,
           _thirdcontroller.value.isPlaying ? Icons.pause : Icons.play_arrow,
         ),
       ),floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -326,6 +335,7 @@ class _VideoPlayerAppFourthState extends State<VideoPlayerAppFourth> {
         },
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.transparent,
          mini: true,
         onPressed: () {
           setState(() {
@@ -334,7 +344,7 @@ class _VideoPlayerAppFourthState extends State<VideoPlayerAppFourth> {
                 : _fourthcontroller.play();
           });
         },
-        child: Icon(
+        child: Icon(color: cWhite,
           _fourthcontroller.value.isPlaying ? Icons.pause : Icons.play_arrow,
         ),
       ),floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

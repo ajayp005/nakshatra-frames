@@ -49,7 +49,7 @@ class NakshatraFooterBar extends StatelessWidget {
                       ),
                       SizedBox(
                         width: 350,
-                          height: 90,
+                          height: 100,
                           child: GooglePoppinsWidgets(text: 
                           '📌 Lepton Plus Communications (OPC) Pvt.Ltd\n'
                                 '5 th Floor,Karimpanal Statue Avenue , G.H. Road \n'
