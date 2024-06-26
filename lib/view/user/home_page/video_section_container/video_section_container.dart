@@ -15,7 +15,6 @@ class VideoSectionContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Padding(
         padding: const EdgeInsets.only(top: 0.5),
         child: Column(
@@ -244,16 +243,16 @@ class VideoSectionContainer extends StatelessWidget {
 }
 
 List<String> heading= [
-  'Nakshatra Frames',
+  'Lepton LilSTARS',
   'TeleOP',
   'Lepton Dujo',
   'Vidyaveechi'
 ];
 List<String> detailText= [
-  "Imagination Beyond Stars",
-  "Stay At Home, Care At Home",
-  "Watch And Guide Let Them Study",
-  "E-learning is not just a phase, it's the future's mainstay of education",
+  "By introducing Lepton LilSTARS combined with assistive tools educators can create an inclusive and supportive educational experience that ensures differently abled students have equal opportunities to learn, thrive, and reach their full potential.",
+  " Health and wellbeing has never been so important than today. It is, therefore essential to seek professional care to ensure the right treatment at the right time. Time is the most crucial factor, Lepton Plus Communications provides the best healthcare services through TeleOP in an affordable manner from the convenience of your home.",
+  "LeptonDuJo is a comprehensive school management app designed to streamline administrative tasks, enhance communication between stakeholders, and improve overall efficiency in educational institutions. It offers a range of features and tools that cater to the diverse needs of administrators, teachers, students, and parents, facilitating seamless management and collaboration.",
+  "At Vidyaveechi, we understand the importance of quality education. We bring you an innovative mobile app that redefines the learning experience for students, parents, teachers, and the management. Our app is designed to provide seamless communication, advanced teaching tools, and AI-powered doubt clearing to ensure your academic success.",
 ];
 
 class VideoPlayerContainerWidgets extends StatelessWidget {
@@ -351,14 +350,14 @@ class VideoPlayer1ContainerWidgets extends StatelessWidget {
           ),
         ),
         const Text(
-          "Lepton",
+          "Lepton Dujo",
           // state.videos[index].title,
           // style: const TextStyle(
           style: TextStyle(color: Colors.white),
           //     fontWeight: FontWeight.w400),
         ),
         GooglePoppinsWidgets(
-          text: "Products",
+          text: "School Website and App",
           //  state.videos[index].subtitle,
           fontsize: 10,
           color: Colors.white,
@@ -404,14 +403,14 @@ class VideoPlayer2ContainerWidgets extends StatelessWidget {
           ),
         ),
         const Text(
-          "Lepton",
+          "TeleOP",
           // state.videos[index].title,
           // style: const TextStyle(
           style: TextStyle(color: Colors.white),
           //     fontWeight: FontWeight.w400),
         ),
         GooglePoppinsWidgets(
-          text: "Product",
+          text: "Medical Product",
           //  state.videos[index].subtitle,
           fontsize: 10,
           color: Colors.white,
@@ -457,14 +456,14 @@ class VideoPlayer3ContainerWidgets extends StatelessWidget {
           ),
         ),
         const Text(
-          "Lepton",
+          "TeleOP",
           // state.videos[index].title,
           // style: const TextStyle(
           style: TextStyle(color: Colors.white),
           //     fontWeight: FontWeight.w400),
         ),
         GooglePoppinsWidgets(
-          text: "Product",
+          text: "Medical Product",
           //  state.videos[index].subtitle,
           fontsize: 10,
           color: Colors.white,
@@ -510,14 +509,14 @@ class VideoPlayer4ContainerWidgets extends StatelessWidget {
           ),
         ),
         const Text(
-          "Lepton",
+          "TeleOP",
           // state.videos[index].title,
           // style: const TextStyle(
           style: TextStyle(color: Colors.white),
           //     fontWeight: FontWeight.w400),
         ),
         GooglePoppinsWidgets(
-          text: "Product",
+          text: "Medical Product",
           //  state.videos[index].subtitle,
           fontsize: 10,
           color: Colors.white,
